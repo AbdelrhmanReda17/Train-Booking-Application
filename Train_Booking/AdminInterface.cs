@@ -177,7 +177,6 @@ namespace Train_Booking
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     string x = $"{DateTime.Now.Year}-{txtmonth.Text}-{txtday.Text}";
-
                     command.Parameters.AddWithValue("@source", txtsource.Text);
                     command.Parameters.AddWithValue("@destination", txtdestination.Text);
                     command.Parameters.AddWithValue("@price", double.Parse(txtprice.Text));
@@ -199,14 +198,51 @@ namespace Train_Booking
                     {
                         MessageBox.Show("Trip added successfully", "Add Trip Success",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtdestination.Text = "";
-                        txtprice.Text = "";
-                        txtsource.Text = "";
-                        txttrain_id.Text = "";
-                        txtday.Text = "";
-                        txtmonth.Text = "";
                     }
                 }
+                connection.Close();
+                connection.Open();
+                int trainSeats;
+                query = "SELECT total_seats FROM Train WHERE train_id = @traindd";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@traindd", txttrain_id.Text);
+                    trainSeats = Convert.ToInt32(command.ExecuteScalar());
+                }
+                connection.Close();
+                connection.Open();
+
+                int trip_id;
+                query = "SELECT MAX(trip_id) FROM Trip";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    trip_id = Convert.ToInt32(command.ExecuteScalar());
+                }
+                connection.Close();
+                connection.Open();
+                query = "INSERT INTO Seat (state, Train_train_id, trip_id) VALUES (@state, @trainID, @trip_id)";
+                for (int i = 1; i <= trainSeats; i++)
+                {
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@state", 0);
+                        command.Parameters.AddWithValue("@trainID", txttrain_id.Text);
+                        command.Parameters.AddWithValue("@trip_id", trip_id);
+                        int result = command.ExecuteNonQuery();
+                        if (result < 0)
+                        {
+                            MessageBox.Show("ERROR WHILE INSERTING", "Failed ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                    }
+                }
+                txtdestination.Text = "";
+                txtprice.Text = "";
+                txtsource.Text = "";
+                txttrain_id.Text = "";
+                txtday.Text = "";
+                txtmonth.Text = "";
+                MessageBox.Show("Seats added successfully", "Add Seats Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 connection.Close();
             }
         }
@@ -258,7 +294,6 @@ namespace Train_Booking
         private int selectedtrip;
         private void bunifuThinButton23_Click(object sender, EventArgs e)
         {
-            Mtxttrain_id.Items.Clear();
             Int32 selectedRowCount =
                 dataGridView.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount > 0)
@@ -280,7 +315,6 @@ namespace Train_Booking
                     Mtxtsource.Text = reader.GetString(3);
                     Mtxtdestination.Text = reader.GetString(4);
                     Mtxtprice.Text = reader.GetDouble(1).ToString();
-                    Mtxttrain_id.Text = reader.GetInt32(5).ToString();
                 }
                 connection.Close();
             }
@@ -288,79 +322,29 @@ namespace Train_Booking
 
         public void RemoveTrip(int tp)
         {
-            string str = "Server = ABDELRHMAN\\SQLEXPRESS; Initial Catalog = Train-Booking; Integrated Security = true;";
-            SqlConnection con = new SqlConnection(str);
             CheckTrip(tp);
-            con.Open();
+            connection.Open();
             string query = $"Delete from Trip where trip_id={tp}";
-            using (SqlCommand command = new SqlCommand(query, con))
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
                 int result = command.ExecuteNonQuery();
-                if (result < 0)
-                {
-                    Console.WriteLine("Error delating data into Database!");
-                }
-                else
-                {
-                    Console.WriteLine("Trip deleted successfully.");
-                }
             }
-            con.Close();
+            connection.Close();
         }
         public void CheckTrip(int tp)
         {
-            string str = "Server = ABDELRHMAN\\SQLEXPRESS; Initial Catalog = Train-Booking; Integrated Security = true;";
-            SqlConnection con = new SqlConnection(str);
-            con.Open();
-
-            // Get the booking ID for the specified trip.
-            int? bk = null;
-            string query = $"SELECT Booking_id FROM Booking WHERE trip_id={tp}";
-            using (SqlCommand command = new SqlCommand(query, con))
+            connection.Open();
+            string query = $"DELETE FROM Seat WHERE trip_id = {tp}";
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                object result = command.ExecuteScalar();
-                if (result != null && int.TryParse(result.ToString(), out int bookingId))
-                {
-                    bk = bookingId;
-                }
+                int result = command.ExecuteNonQuery();
             }
-            if (bk.HasValue)
+            query = $"DELETE FROM Booking WHERE trip_id={tp}";
+            using (SqlCommand command = new SqlCommand(query, connection))
             {
-                // Free all seats for the specified booking ID.
-                query = $"UPDATE Seat SET state = 0, booking_id = NULL WHERE booking_id={bk}";
-                using (SqlCommand command = new SqlCommand(query, con))
-                {
-                    int result = command.ExecuteNonQuery();
-                    if (result < 0)
-                    {
-                        Console.WriteLine("No seats to free.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Seats related to this trip has been freed successfully.");
-                    }
-                }
-
-                // Delete all booking that is related to this trip
-                query = $"DELETE FROM Booking WHERE trip_id={tp}";
-                using (SqlCommand command = new SqlCommand(query, con))
-                {
-                    int result = command.ExecuteNonQuery();
-                    if (result < 0)
-                    {
-                        Console.WriteLine("No booking to delete.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Booking related to this trip has been deleted successfully.");
-                    }
-                }
+                int result = command.ExecuteNonQuery();
             }
-            else
-            {
-                Console.WriteLine("No booking found for the specified trip ID.");
-            }
-            con.Close();
+            connection.Close();
         }
 
         private void addtrain_Click_1(object sender, EventArgs e)
@@ -450,10 +434,11 @@ namespace Train_Booking
                 }
             }
         }
+        // TRAIN-CHANGE
         private void bunifuThinButton24_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Mtxtsource.Text) && string.IsNullOrEmpty(Mtxtdestination.Text)
-                && string.IsNullOrEmpty(Mtxtprice.Text) && string.IsNullOrEmpty(Mtxttrain_id.Text))
+                                                      && string.IsNullOrEmpty(Mtxtprice.Text))
             {
                 MessageBox.Show("Cannot leave fields empty", "Add Trip Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -467,7 +452,8 @@ namespace Train_Booking
             }
             else if (!Regex.IsMatch(Mtxtdestination.Text, @"^[a-zA-Z\s]+$"))
             {
-                MessageBox.Show("Invalid Destination. Name can only contain alphabetic characters", "Registration Failed",
+                MessageBox.Show("Invalid Destination. Name can only contain alphabetic characters",
+                    "Registration Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Mtxtdestination.Text = "";
                 Mtxtdestination.Focus();
@@ -497,51 +483,39 @@ namespace Train_Booking
             }
             else
             {
-                string str = "Server = ABDELRHMAN\\SQLEXPRESS; Initial Catalog = Train-Booking; Integrated Security = true;";
-                SqlConnection con = new SqlConnection(str);
                 connection.Open();
-                string query = $"UPDATE Trip SET source = @source, destination = @destination, price = @price, train_id = @train_id , trip_date = @trip_date WHERE trip_id = '{selectedtrip}'";
+
+                string query = "UPDATE Trip SET source = @source, destination = @destination, price = @price, trip_date = @trip_date WHERE trip_id = @selectedtrip";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@source", Mtxtsource.Text);
                     command.Parameters.AddWithValue("@destination", Mtxtdestination.Text);
                     command.Parameters.AddWithValue("@price", Mtxtprice.Text);
-                    command.Parameters.AddWithValue("@train_id", Mtxttrain_id.Text);
                     string x = $"{DateTime.Now.Year}-{Mtxtmonth.Text}-{Mtxtday.Text}";
                     command.Parameters.AddWithValue("@trip_date", x);
+                    command.Parameters.AddWithValue("@selectedtrip", selectedtrip);
                     int result = command.ExecuteNonQuery();
                     if (result < 0)
                     {
-                        MessageBox.Show("Some thing went wrong while updating trip", "Update Trip Failed",
+                        MessageBox.Show("Something went wrong while updating the trip", "Update Trip Failed",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Mtxtdestination.Text = "";
-                        Mtxtprice.Text = "";
-                        Mtxtsource.Text = "";
-                        Mtxttrain_id.Text = "";
-                        Mtxtday.Text = "";
-                        Mtxtmonth.Text = "";
-                        managepanel.Hide();
-                        connection.Close();
-                        revatrip_btn_Click(sender, e);
                     }
                     else
                     {
-                        MessageBox.Show("Trip updated successfully", "Update Trip Success",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        Mtxtdestination.Text = "";
-                        Mtxtprice.Text = "";
-                        Mtxtsource.Text = "";
-                        Mtxttrain_id.Text = "";
-                        Mtxtday.Text = "";
-                        Mtxtmonth.Text = "";
-                        managepanel.Hide();
-                        connection.Close();
-                        revatrip_btn_Click(sender, e);
+                        MessageBox.Show("Trip updated successfully", "Update Trip Success", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
                     }
+                    Mtxtdestination.Text = "";
+                    Mtxtprice.Text = "";
+                    Mtxtsource.Text = "";
+                    Mtxtday.Text = "";
+                    Mtxtmonth.Text = "";
+                    managepanel.Hide();
+                    connection.Close();
+                    revatrip_btn_Click(sender, e);
                 }
             }
         }
-
         private void bunifuThinButton22_Click(object sender, EventArgs e)
         {
             RemoveTrip(selectedtrip);

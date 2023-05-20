@@ -38,7 +38,7 @@ namespace Train_Booking
                 SqlCommand command;
                 if (ifAdmin.Checked)
                 {
-                    
+
                     Admin? admin = null;
                     try
                     {
@@ -60,8 +60,9 @@ namespace Train_Booking
                                 isLogined = true;
                             }
                         }
-                    }catch{}
-                   
+                    }
+                    catch { }
+
                     if (isLogined)
                     {
                         MessageBox.Show("Successfully Logined", "Login Success",
@@ -106,7 +107,8 @@ namespace Train_Booking
                                 isLogined = true;
                             }
                         }
-                    }catch{}
+                    }
+                    catch { }
                     if (isLogined)
                     {
                         MessageBox.Show("Successfully Logined", "Login Success",

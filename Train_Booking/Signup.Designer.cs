@@ -409,7 +409,7 @@
             Controls.Add(panel1);
             Controls.Add(label10);
             Font = new Font("Nirmala UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Signup";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Train Booker";

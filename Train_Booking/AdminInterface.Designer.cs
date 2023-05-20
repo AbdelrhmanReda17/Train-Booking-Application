@@ -62,6 +62,19 @@
             label9 = new Label();
             txtSeats = new TextBox();
             addtrain = new Bunifu.Framework.UI.BunifuThinButton2();
+            managepanel = new Panel();
+            Mtxtmonth = new TextBox();
+            label15 = new Label();
+            Mtxtday = new TextBox();
+            label14 = new Label();
+            bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
+            Mtxtdestination = new TextBox();
+            Mtxtprice = new TextBox();
+            label8 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            Mtxtsource = new TextBox();
+            bunifuThinButton24 = new Bunifu.Framework.UI.BunifuThinButton2();
             addtrip_btn = new Bunifu.Framework.UI.BunifuThinButton2();
             revatrip_btn = new Bunifu.Framework.UI.BunifuThinButton2();
             addtrain_btn = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -70,31 +83,16 @@
             revtrip_panel = new Panel();
             dataGridView = new DataGridView();
             bunifuThinButton23 = new Bunifu.Framework.UI.BunifuThinButton2();
-            managepanel = new Panel();
-            bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
-            Mtxtdestination = new TextBox();
-            Mtxtprice = new TextBox();
-            label7 = new Label();
-            label8 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            Mtxttrain_id = new ComboBox();
-            Mtxtsource = new TextBox();
-            bunifuThinButton24 = new Bunifu.Framework.UI.BunifuThinButton2();
             rmvtrain_panel = new Panel();
             bunifuThinButton25 = new Bunifu.Framework.UI.BunifuThinButton2();
             dataGridView1 = new DataGridView();
             bunifuThinButton26 = new Bunifu.Framework.UI.BunifuThinButton2();
-            Mtxtday = new TextBox();
-            label14 = new Label();
-            Mtxtmonth = new TextBox();
-            label15 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             addTripPanel.SuspendLayout();
             addtrain_panel.SuspendLayout();
+            managepanel.SuspendLayout();
             revtrip_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
-            managepanel.SuspendLayout();
             rmvtrain_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -330,7 +328,7 @@
             addtrain_panel.Controls.Add(label9);
             addtrain_panel.Controls.Add(txtSeats);
             addtrain_panel.Controls.Add(addtrain);
-            addtrain_panel.Location = new Point(163, 29);
+            addtrain_panel.Location = new Point(154, 28);
             addtrain_panel.Name = "addtrain_panel";
             addtrain_panel.Size = new Size(320, 409);
             addtrain_panel.TabIndex = 28;
@@ -417,6 +415,186 @@
             addtrain.TabIndex = 16;
             addtrain.TextAlign = ContentAlignment.MiddleCenter;
             addtrain.Click += addtrain_Click_1;
+            // 
+            // managepanel
+            // 
+            managepanel.Controls.Add(Mtxtmonth);
+            managepanel.Controls.Add(label15);
+            managepanel.Controls.Add(Mtxtday);
+            managepanel.Controls.Add(label14);
+            managepanel.Controls.Add(bunifuThinButton22);
+            managepanel.Controls.Add(Mtxtdestination);
+            managepanel.Controls.Add(Mtxtprice);
+            managepanel.Controls.Add(label8);
+            managepanel.Controls.Add(label10);
+            managepanel.Controls.Add(label11);
+            managepanel.Controls.Add(Mtxtsource);
+            managepanel.Controls.Add(bunifuThinButton24);
+            managepanel.Location = new Point(148, 28);
+            managepanel.Name = "managepanel";
+            managepanel.Size = new Size(326, 408);
+            managepanel.TabIndex = 28;
+            managepanel.Visible = false;
+            // 
+            // Mtxtmonth
+            // 
+            Mtxtmonth.BorderStyle = BorderStyle.FixedSingle;
+            Mtxtmonth.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Mtxtmonth.ForeColor = Color.FromArgb(5, 42, 97);
+            Mtxtmonth.Location = new Point(160, 208);
+            Mtxtmonth.Multiline = true;
+            Mtxtmonth.Name = "Mtxtmonth";
+            Mtxtmonth.Size = new Size(79, 30);
+            Mtxtmonth.TabIndex = 31;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label15.ForeColor = Color.FromArgb(5, 42, 97);
+            label15.Location = new Point(160, 190);
+            label15.Name = "label15";
+            label15.Size = new Size(68, 15);
+            label15.TabIndex = 30;
+            label15.Text = "Trip Month";
+            // 
+            // Mtxtday
+            // 
+            Mtxtday.BorderStyle = BorderStyle.FixedSingle;
+            Mtxtday.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Mtxtday.ForeColor = Color.FromArgb(5, 42, 97);
+            Mtxtday.Location = new Point(17, 208);
+            Mtxtday.Multiline = true;
+            Mtxtday.Name = "Mtxtday";
+            Mtxtday.Size = new Size(96, 30);
+            Mtxtday.TabIndex = 29;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label14.ForeColor = Color.FromArgb(5, 42, 97);
+            label14.Location = new Point(17, 190);
+            label14.Name = "label14";
+            label14.Size = new Size(52, 15);
+            label14.TabIndex = 28;
+            label14.Text = "Trip Day";
+            // 
+            // bunifuThinButton22
+            // 
+            bunifuThinButton22.ActiveBorderThickness = 1;
+            bunifuThinButton22.ActiveCornerRadius = 20;
+            bunifuThinButton22.ActiveFillColor = Color.FromArgb(5, 42, 97);
+            bunifuThinButton22.ActiveForecolor = Color.White;
+            bunifuThinButton22.ActiveLineColor = Color.FromArgb(5, 42, 97);
+            bunifuThinButton22.BackColor = Color.White;
+            bunifuThinButton22.BackgroundImage = (Image)resources.GetObject("bunifuThinButton22.BackgroundImage");
+            bunifuThinButton22.ButtonText = "DELETE TRIP";
+            bunifuThinButton22.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            bunifuThinButton22.ForeColor = Color.SeaGreen;
+            bunifuThinButton22.IdleBorderThickness = 1;
+            bunifuThinButton22.IdleCornerRadius = 20;
+            bunifuThinButton22.IdleFillColor = Color.White;
+            bunifuThinButton22.IdleForecolor = Color.FromArgb(5, 42, 97);
+            bunifuThinButton22.IdleLineColor = Color.FromArgb(5, 42, 97);
+            bunifuThinButton22.Location = new Point(52, 343);
+            bunifuThinButton22.Margin = new Padding(4);
+            bunifuThinButton22.Name = "bunifuThinButton22";
+            bunifuThinButton22.Size = new Size(216, 42);
+            bunifuThinButton22.TabIndex = 27;
+            bunifuThinButton22.TextAlign = ContentAlignment.MiddleCenter;
+            bunifuThinButton22.Click += bunifuThinButton22_Click;
+            // 
+            // Mtxtdestination
+            // 
+            Mtxtdestination.BorderStyle = BorderStyle.FixedSingle;
+            Mtxtdestination.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Mtxtdestination.ForeColor = Color.FromArgb(5, 42, 97);
+            Mtxtdestination.Location = new Point(15, 91);
+            Mtxtdestination.Multiline = true;
+            Mtxtdestination.Name = "Mtxtdestination";
+            Mtxtdestination.Size = new Size(240, 30);
+            Mtxtdestination.TabIndex = 26;
+            // 
+            // Mtxtprice
+            // 
+            Mtxtprice.BorderStyle = BorderStyle.FixedSingle;
+            Mtxtprice.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Mtxtprice.ForeColor = Color.FromArgb(5, 42, 97);
+            Mtxtprice.Location = new Point(15, 147);
+            Mtxtprice.Multiline = true;
+            Mtxtprice.Name = "Mtxtprice";
+            Mtxtprice.Size = new Size(240, 31);
+            Mtxtprice.TabIndex = 25;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.FromArgb(5, 42, 97);
+            label8.Location = new Point(15, 129);
+            label8.Name = "label8";
+            label8.Size = new Size(35, 15);
+            label8.TabIndex = 23;
+            label8.Text = "Price";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = Color.FromArgb(5, 42, 97);
+            label10.Location = new Point(15, 73);
+            label10.Name = "label10";
+            label10.Size = new Size(95, 15);
+            label10.TabIndex = 22;
+            label10.Text = "Trip Destination";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = Color.FromArgb(5, 42, 97);
+            label11.Location = new Point(15, 7);
+            label11.Name = "label11";
+            label11.Size = new Size(65, 15);
+            label11.TabIndex = 21;
+            label11.Text = "Trip Souce";
+            // 
+            // Mtxtsource
+            // 
+            Mtxtsource.BorderStyle = BorderStyle.FixedSingle;
+            Mtxtsource.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Mtxtsource.ForeColor = Color.FromArgb(5, 42, 97);
+            Mtxtsource.Location = new Point(15, 25);
+            Mtxtsource.Multiline = true;
+            Mtxtsource.Name = "Mtxtsource";
+            Mtxtsource.Size = new Size(240, 30);
+            Mtxtsource.TabIndex = 17;
+            // 
+            // bunifuThinButton24
+            // 
+            bunifuThinButton24.ActiveBorderThickness = 1;
+            bunifuThinButton24.ActiveCornerRadius = 20;
+            bunifuThinButton24.ActiveFillColor = Color.White;
+            bunifuThinButton24.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            bunifuThinButton24.ActiveLineColor = Color.FromArgb(5, 42, 97);
+            bunifuThinButton24.BackColor = Color.White;
+            bunifuThinButton24.BackgroundImage = (Image)resources.GetObject("bunifuThinButton24.BackgroundImage");
+            bunifuThinButton24.ButtonText = "CONFIRM";
+            bunifuThinButton24.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            bunifuThinButton24.ForeColor = Color.SeaGreen;
+            bunifuThinButton24.IdleBorderThickness = 1;
+            bunifuThinButton24.IdleCornerRadius = 20;
+            bunifuThinButton24.IdleFillColor = Color.FromArgb(5, 42, 97);
+            bunifuThinButton24.IdleForecolor = Color.White;
+            bunifuThinButton24.IdleLineColor = Color.FromArgb(5, 42, 97);
+            bunifuThinButton24.Location = new Point(52, 293);
+            bunifuThinButton24.Margin = new Padding(4);
+            bunifuThinButton24.Name = "bunifuThinButton24";
+            bunifuThinButton24.Size = new Size(216, 42);
+            bunifuThinButton24.TabIndex = 16;
+            bunifuThinButton24.TextAlign = ContentAlignment.MiddleCenter;
+            bunifuThinButton24.Click += bunifuThinButton24_Click;
             // 
             // addtrip_btn
             // 
@@ -633,171 +811,12 @@
             bunifuThinButton23.TextAlign = ContentAlignment.MiddleCenter;
             bunifuThinButton23.Click += bunifuThinButton23_Click;
             // 
-            // managepanel
-            // 
-            managepanel.Controls.Add(Mtxtmonth);
-            managepanel.Controls.Add(label15);
-            managepanel.Controls.Add(Mtxtday);
-            managepanel.Controls.Add(label14);
-            managepanel.Controls.Add(bunifuThinButton22);
-            managepanel.Controls.Add(Mtxtdestination);
-            managepanel.Controls.Add(Mtxtprice);
-            managepanel.Controls.Add(label7);
-            managepanel.Controls.Add(label8);
-            managepanel.Controls.Add(label10);
-            managepanel.Controls.Add(label11);
-            managepanel.Controls.Add(Mtxttrain_id);
-            managepanel.Controls.Add(Mtxtsource);
-            managepanel.Controls.Add(bunifuThinButton24);
-            managepanel.Location = new Point(151, 32);
-            managepanel.Name = "managepanel";
-            managepanel.Size = new Size(326, 408);
-            managepanel.TabIndex = 28;
-            managepanel.Visible = false;
-            // 
-            // bunifuThinButton22
-            // 
-            bunifuThinButton22.ActiveBorderThickness = 1;
-            bunifuThinButton22.ActiveCornerRadius = 20;
-            bunifuThinButton22.ActiveFillColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton22.ActiveForecolor = Color.White;
-            bunifuThinButton22.ActiveLineColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton22.BackColor = Color.White;
-            bunifuThinButton22.BackgroundImage = (Image)resources.GetObject("bunifuThinButton22.BackgroundImage");
-            bunifuThinButton22.ButtonText = "DELETE TRIP";
-            bunifuThinButton22.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            bunifuThinButton22.ForeColor = Color.SeaGreen;
-            bunifuThinButton22.IdleBorderThickness = 1;
-            bunifuThinButton22.IdleCornerRadius = 20;
-            bunifuThinButton22.IdleFillColor = Color.White;
-            bunifuThinButton22.IdleForecolor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton22.IdleLineColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton22.Location = new Point(52, 343);
-            bunifuThinButton22.Margin = new Padding(4);
-            bunifuThinButton22.Name = "bunifuThinButton22";
-            bunifuThinButton22.Size = new Size(216, 42);
-            bunifuThinButton22.TabIndex = 27;
-            bunifuThinButton22.TextAlign = ContentAlignment.MiddleCenter;
-            bunifuThinButton22.Click += bunifuThinButton22_Click;
-            // 
-            // Mtxtdestination
-            // 
-            Mtxtdestination.BorderStyle = BorderStyle.FixedSingle;
-            Mtxtdestination.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Mtxtdestination.ForeColor = Color.FromArgb(5, 42, 97);
-            Mtxtdestination.Location = new Point(15, 91);
-            Mtxtdestination.Multiline = true;
-            Mtxtdestination.Name = "Mtxtdestination";
-            Mtxtdestination.Size = new Size(240, 30);
-            Mtxtdestination.TabIndex = 26;
-            // 
-            // Mtxtprice
-            // 
-            Mtxtprice.BorderStyle = BorderStyle.FixedSingle;
-            Mtxtprice.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Mtxtprice.ForeColor = Color.FromArgb(5, 42, 97);
-            Mtxtprice.Location = new Point(15, 147);
-            Mtxtprice.Multiline = true;
-            Mtxtprice.Name = "Mtxtprice";
-            Mtxtprice.Size = new Size(240, 31);
-            Mtxtprice.TabIndex = 25;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = Color.FromArgb(5, 42, 97);
-            label7.Location = new Point(15, 192);
-            label7.Name = "label7";
-            label7.Size = new Size(94, 15);
-            label7.TabIndex = 24;
-            label7.Text = "Selcet a Train id";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.ForeColor = Color.FromArgb(5, 42, 97);
-            label8.Location = new Point(15, 129);
-            label8.Name = "label8";
-            label8.Size = new Size(35, 15);
-            label8.TabIndex = 23;
-            label8.Text = "Price";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.ForeColor = Color.FromArgb(5, 42, 97);
-            label10.Location = new Point(15, 73);
-            label10.Name = "label10";
-            label10.Size = new Size(95, 15);
-            label10.TabIndex = 22;
-            label10.Text = "Trip Destination";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.ForeColor = Color.FromArgb(5, 42, 97);
-            label11.Location = new Point(15, 7);
-            label11.Name = "label11";
-            label11.Size = new Size(65, 15);
-            label11.TabIndex = 21;
-            label11.Text = "Trip Souce";
-            // 
-            // Mtxttrain_id
-            // 
-            Mtxttrain_id.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Mtxttrain_id.ForeColor = Color.FromArgb(5, 42, 97);
-            Mtxttrain_id.FormattingEnabled = true;
-            Mtxttrain_id.Location = new Point(15, 211);
-            Mtxttrain_id.Name = "Mtxttrain_id";
-            Mtxttrain_id.Size = new Size(194, 29);
-            Mtxttrain_id.TabIndex = 20;
-            // 
-            // Mtxtsource
-            // 
-            Mtxtsource.BorderStyle = BorderStyle.FixedSingle;
-            Mtxtsource.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Mtxtsource.ForeColor = Color.FromArgb(5, 42, 97);
-            Mtxtsource.Location = new Point(15, 25);
-            Mtxtsource.Multiline = true;
-            Mtxtsource.Name = "Mtxtsource";
-            Mtxtsource.Size = new Size(240, 30);
-            Mtxtsource.TabIndex = 17;
-            // 
-            // bunifuThinButton24
-            // 
-            bunifuThinButton24.ActiveBorderThickness = 1;
-            bunifuThinButton24.ActiveCornerRadius = 20;
-            bunifuThinButton24.ActiveFillColor = Color.White;
-            bunifuThinButton24.ActiveForecolor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton24.ActiveLineColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton24.BackColor = Color.White;
-            bunifuThinButton24.BackgroundImage = (Image)resources.GetObject("bunifuThinButton24.BackgroundImage");
-            bunifuThinButton24.ButtonText = "CONFIRM";
-            bunifuThinButton24.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            bunifuThinButton24.ForeColor = Color.SeaGreen;
-            bunifuThinButton24.IdleBorderThickness = 1;
-            bunifuThinButton24.IdleCornerRadius = 20;
-            bunifuThinButton24.IdleFillColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton24.IdleForecolor = Color.White;
-            bunifuThinButton24.IdleLineColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton24.Location = new Point(52, 293);
-            bunifuThinButton24.Margin = new Padding(4);
-            bunifuThinButton24.Name = "bunifuThinButton24";
-            bunifuThinButton24.Size = new Size(216, 42);
-            bunifuThinButton24.TabIndex = 16;
-            bunifuThinButton24.TextAlign = ContentAlignment.MiddleCenter;
-            bunifuThinButton24.Click += bunifuThinButton24_Click;
-            // 
             // rmvtrain_panel
             // 
             rmvtrain_panel.Controls.Add(bunifuThinButton25);
             rmvtrain_panel.Controls.Add(dataGridView1);
             rmvtrain_panel.Controls.Add(bunifuThinButton26);
-            rmvtrain_panel.Location = new Point(154, 30);
+            rmvtrain_panel.Location = new Point(154, 27);
             rmvtrain_panel.Name = "rmvtrain_panel";
             rmvtrain_panel.Size = new Size(326, 408);
             rmvtrain_panel.TabIndex = 29;
@@ -907,50 +926,6 @@
             bunifuThinButton26.TabIndex = 16;
             bunifuThinButton26.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // Mtxtday
-            // 
-            Mtxtday.BorderStyle = BorderStyle.FixedSingle;
-            Mtxtday.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Mtxtday.ForeColor = Color.FromArgb(5, 42, 97);
-            Mtxtday.Location = new Point(14, 261);
-            Mtxtday.Multiline = true;
-            Mtxtday.Name = "Mtxtday";
-            Mtxtday.Size = new Size(96, 30);
-            Mtxtday.TabIndex = 29;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.ForeColor = Color.FromArgb(5, 42, 97);
-            label14.Location = new Point(14, 243);
-            label14.Name = "label14";
-            label14.Size = new Size(52, 15);
-            label14.TabIndex = 28;
-            label14.Text = "Trip Day";
-            // 
-            // Mtxtmonth
-            // 
-            Mtxtmonth.BorderStyle = BorderStyle.FixedSingle;
-            Mtxtmonth.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            Mtxtmonth.ForeColor = Color.FromArgb(5, 42, 97);
-            Mtxtmonth.Location = new Point(157, 261);
-            Mtxtmonth.Multiline = true;
-            Mtxtmonth.Name = "Mtxtmonth";
-            Mtxtmonth.Size = new Size(79, 30);
-            Mtxtmonth.TabIndex = 31;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label15.ForeColor = Color.FromArgb(5, 42, 97);
-            label15.Location = new Point(157, 243);
-            label15.Name = "label15";
-            label15.Size = new Size(68, 15);
-            label15.TabIndex = 30;
-            label15.Text = "Trip Month";
-            // 
             // AdminInterface
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -958,8 +933,8 @@
             BackColor = Color.White;
             ClientSize = new Size(516, 450);
             Controls.Add(managepanel);
-            Controls.Add(rmvtrain_panel);
             Controls.Add(addtrain_panel);
+            Controls.Add(rmvtrain_panel);
             Controls.Add(revtrip_panel);
             Controls.Add(logout_btn);
             Controls.Add(rmvtrain_btn);
@@ -969,7 +944,7 @@
             Controls.Add(addTripPanel);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "AdminInterface";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminInterface";
@@ -979,10 +954,10 @@
             addTripPanel.PerformLayout();
             addtrain_panel.ResumeLayout(false);
             addtrain_panel.PerformLayout();
-            revtrip_panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             managepanel.ResumeLayout(false);
             managepanel.PerformLayout();
+            revtrip_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             rmvtrain_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -1021,11 +996,9 @@
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton22;
         private TextBox Mtxtdestination;
         private TextBox Mtxtprice;
-        private Label label7;
         private Label label8;
         private Label label10;
         private Label label11;
-        private ComboBox Mtxttrain_id;
         private TextBox Mtxtsource;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton24;
         private Panel rmvtrain_panel;

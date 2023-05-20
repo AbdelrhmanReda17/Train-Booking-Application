@@ -136,7 +136,7 @@ namespace Train_Booking
             Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(label2);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "StartPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Train Booker";

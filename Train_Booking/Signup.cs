@@ -79,7 +79,7 @@ namespace Train_Booking
                 textcity.Text = "";
                 textcity.Focus();
             }
-            else if (!Regex.IsMatch(textage.Text, @"^\d+$"))
+            else if (!Regex.IsMatch(textage.Text, @"^\d+$") && Convert.ToInt32(textage.Text) > 18)
             {
                 MessageBox.Show("Invalid age. Age must be a positive integer", "Registration Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
