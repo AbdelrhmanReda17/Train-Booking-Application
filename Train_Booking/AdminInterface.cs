@@ -34,7 +34,8 @@ namespace Train_Booking
         private void AdminInterface_Load(object sender, EventArgs e)
         {
             addtrip_btn_Click(sender, e);
-            label1.Text = $"Welcome, {admin.position} {admin.name}";
+            label1.Text = $"Welcome, {admin.position}";
+            label20.Text = $"{admin.name}";
             connection.Open();
             SqlCommand command;
             string query = "Select * from Train";
@@ -52,36 +53,65 @@ namespace Train_Booking
             }
             connection.Close();
         }
-        private void buttoncoloring(BunifuThinButton2 btn1, BunifuThinButton2 btn2, BunifuThinButton2 btn3, BunifuThinButton2 btn4)
+        private void buttoncoloring(BunifuThinButton2 btn1, BunifuThinButton2 btn2, BunifuThinButton2 btn3, BunifuThinButton2 btn4, BunifuThinButton2 btn5, BunifuThinButton2 btn6)
         {
-            btn1.IdleForecolor = Color.White;
-            btn1.IdleFillColor = Color.FromArgb(5, 42, 97);
-            btn1.IdleLineColor = Color.FromArgb(5, 42, 97);
-
-            btn2.IdleForecolor = Color.FromArgb(5, 42, 97);
-            btn2.IdleFillColor = Color.White;
+            btn2.IdleForecolor = Color.White;
+            btn2.IdleFillColor = Color.FromArgb(5, 42, 97);
             btn2.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn2.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            btn2.ActiveFillColor = Color.White;
+            btn2.ActiveLineColor = Color.FromArgb(5, 42, 97);
 
-            btn3.IdleForecolor = Color.FromArgb(5, 42, 97);
-            btn3.IdleFillColor = Color.White;
+
+            btn1.IdleForecolor = Color.FromArgb(5, 42, 97);
+            btn1.IdleFillColor = Color.White;
+            btn1.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn1.ActiveLineColor = Color.FromArgb(5, 42, 97);
+            btn1.ActiveFillColor = Color.White;
+            btn1.ActiveLineColor = Color.FromArgb(5, 42, 97);
+
+            btn3.IdleForecolor = Color.White;
+            btn3.IdleFillColor = Color.FromArgb(5, 42, 97);
             btn3.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn3.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            btn3.ActiveFillColor = Color.White;
+            btn3.ActiveLineColor = Color.FromArgb(5, 42, 97);
 
-            btn4.IdleForecolor = Color.FromArgb(5, 42, 97);
-            btn4.IdleFillColor = Color.White;
+            btn4.IdleForecolor = Color.White;
+            btn4.IdleFillColor = Color.FromArgb(5, 42, 97);
             btn4.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn4.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            btn4.ActiveFillColor = Color.White;
+            btn4.ActiveLineColor = Color.FromArgb(5, 42, 97);
+
+            btn5.IdleForecolor = Color.White;
+            btn5.IdleFillColor = Color.FromArgb(5, 42, 97);
+            btn5.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn5.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            btn5.ActiveFillColor = Color.White;
+            btn5.ActiveLineColor = Color.FromArgb(5, 42, 97);
+
+            btn6.IdleForecolor = Color.White;
+            btn6.IdleFillColor = Color.FromArgb(5, 42, 97);
+            btn6.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn6.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            btn6.ActiveFillColor = Color.White;
+            btn6.ActiveLineColor = Color.FromArgb(5, 42, 97);
         }
-        private void Hide(Panel first, Panel second, Panel third, Panel Fourth)
+        private void Hide(Panel first, Panel second, Panel third, Panel Fourth, Panel fifth, Panel Sexth)
         {
             first.Visible = true;
             second.Visible = false;
             third.Visible = false;
             managepanel.Visible = false;
             Fourth.Visible = false;
+            fifth.Visible = false;
+            Sexth.Visible = false;
         }
         private void revatrip_btn_Click(object sender, EventArgs e)
         {
-            Hide(revtrip_panel, addTripPanel, addtrain_panel, rmvtrain_panel);
-            buttoncoloring(revatrip_btn, addtrain_btn, rmvtrain_btn, addtrip_btn);
+            Hide(revtrip_panel, addTripPanel, addtrain_panel, rmvtrain_panel, addadmin_panel, report_panel);
+            buttoncoloring(revatrip_btn, addtrain_btn, rmvtrain_btn, addtrip_btn, bunifuThinButton26, report_btn);
             managepanel.Visible = false;
             // Enable full row selection
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -101,15 +131,15 @@ namespace Train_Booking
                 DataTable dataTable = new DataTable();
                 dataTable.Load(reader);
                 dataGridView.DataSource = dataTable;
-                dataGridView.Columns["TripID"].Width = 40;
+                dataGridView.Columns["TripID"].Width = 50;
                 dataGridView.Columns["TripID"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridView.Columns["Price"].Width = 43;
+                dataGridView.Columns["Price"].Width = 50;
                 dataGridView.Columns["Price"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridView.Columns["Source"].Width = 75;
+                dataGridView.Columns["Source"].Width = 90;
                 dataGridView.Columns["Source"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridView.Columns["Destination"].Width = 75;
+                dataGridView.Columns["Destination"].Width = 90;
                 dataGridView.Columns["Destination"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                dataGridView.Columns["TrainID"].Width = 43;
+                dataGridView.Columns["TrainID"].Width = 50;
                 dataGridView.Columns["TrainID"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
@@ -117,8 +147,8 @@ namespace Train_Booking
         }
         private void addtrip_btn_Click(object sender, EventArgs e)
         {
-            Hide(addTripPanel, revtrip_panel, addtrain_panel, rmvtrain_panel);
-            buttoncoloring(addtrip_btn, addtrain_btn, rmvtrain_btn, revatrip_btn);
+            Hide(addTripPanel, revtrip_panel, addtrain_panel, rmvtrain_panel, addadmin_panel, report_panel);
+            buttoncoloring(addtrip_btn, addtrain_btn, rmvtrain_btn, revatrip_btn, bunifuThinButton26, report_btn);
         }
 
         private void confirm_btn_Click(object sender, EventArgs e)
@@ -170,8 +200,6 @@ namespace Train_Booking
             }
             else
             {
-                string str =
-                    "Server = ABDELRHMAN\\SQLEXPRESS; Initial Catalog = Train-Booking; Integrated Security = true;";
                 connection.Open();
                 string query = "INSERT INTO Trip (source, destination, price, train_id , trip_date) VALUES (@source, @destination, @price, @train_id , @trip_date)";
                 using (SqlCommand command = new SqlCommand(query, connection))
@@ -232,7 +260,6 @@ namespace Train_Booking
                         if (result < 0)
                         {
                             MessageBox.Show("ERROR WHILE INSERTING", "Failed ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                         }
                     }
                 }
@@ -262,13 +289,13 @@ namespace Train_Booking
         }
         private void addtrain_btn_Click(object sender, EventArgs e)
         {
-            Hide(addtrain_panel, addTripPanel, revtrip_panel, rmvtrain_panel);
-            buttoncoloring(addtrain_btn, revatrip_btn, rmvtrain_btn, addtrain_btn);
+            Hide(addtrain_panel, addTripPanel, revtrip_panel, rmvtrain_panel, addadmin_panel, report_panel);
+            buttoncoloring(addtrain_btn, revatrip_btn, rmvtrain_btn, addtrip_btn, bunifuThinButton26, report_btn);
         }
         private void rmvtrain_btn_Click(object sender, EventArgs e)
         {
-            Hide(rmvtrain_panel, revtrip_panel, addTripPanel, addtrain_panel);
-            buttoncoloring(rmvtrain_btn, addtrain_btn, revatrip_btn, addtrip_btn);
+            Hide(rmvtrain_panel, revtrip_panel, addTripPanel, addtrain_panel, addadmin_panel, report_panel);
+            buttoncoloring(rmvtrain_btn, addtrain_btn, revatrip_btn, addtrip_btn, bunifuThinButton26, report_btn);
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.CellClick += (s, args) =>
             {
@@ -286,6 +313,11 @@ namespace Train_Booking
                 DataTable dataTable = new DataTable();
                 dataTable.Load(reader);
                 dataGridView1.DataSource = dataTable;
+                dataGridView1.Columns["TrainID"].Width = 160;
+                dataGridView1.Columns["TrainID"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView1.Columns["TotalSeats"].Width = 160;
+                dataGridView1.Columns["TotalSeats"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
             connection.Close();
 
@@ -394,8 +426,8 @@ namespace Train_Booking
         private void addtrip_btn_Click_1(object sender, EventArgs e)
         {
             txttrain_id.Items.Clear();
-            Hide(addTripPanel, addtrain_panel, revtrip_panel, rmvtrain_panel);
-            buttoncoloring(addtrip_btn, revatrip_btn, rmvtrain_btn, addtrain_btn);
+            Hide(addTripPanel, addtrain_panel, revtrip_panel, rmvtrain_panel, addadmin_panel, report_panel);
+            buttoncoloring(addtrip_btn, revatrip_btn, rmvtrain_btn, addtrain_btn, bunifuThinButton26, report_btn);
             connection.Open();
             SqlCommand command;
             string query = "Select * from Train";
@@ -589,14 +621,277 @@ namespace Train_Booking
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Cancel the edit operation
             dataGridView.CancelEdit();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Cancel the edit operation
             dataGridView1.CancelEdit();
+        }
+        private void showpasswordcheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showpasswordcheck.Checked)
+            {
+                textpassword.PasswordChar = '\0';
+                textconfrimpssword.PasswordChar = '\0';
+            }
+            else
+            {
+                textpassword.PasswordChar = '*';
+                textconfrimpssword.PasswordChar = '*';
+            }
+        }
+
+        private void adminconfirm_btn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textpassword.Text) || string.IsNullOrEmpty(textusername.Text) ||
+                string.IsNullOrEmpty(textconfrimpssword.Text) || string.IsNullOrEmpty(textname.Text) ||
+                string.IsNullOrEmpty(textEmail.Text) || string.IsNullOrEmpty(textphone.Text) ||
+                string.IsNullOrEmpty(textposition.Text))
+            {
+                MessageBox.Show("Cannot leave fields empty", "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (textpassword.Text != textconfrimpssword.Text)
+            {
+                MessageBox.Show("Passwords do not match, please re-enter", "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textpassword.Text = "";
+                textconfrimpssword.Text = "";
+                textpassword.Focus();
+            }
+            else if (!Regex.IsMatch(textusername.Text, @"^[a-zA-Z0-9]+$"))
+            {
+                MessageBox.Show("Invalid username. Username can only contain alphanumeric characters",
+                    "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textusername.Text = "";
+                textusername.Focus();
+            }
+            else if (!Regex.IsMatch(textname.Text, @"^[a-zA-Z\s]+$"))
+            {
+                MessageBox.Show("Invalid name. Name can only contain alphabetic characters", "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textname.Text = "";
+                textname.Focus();
+            }
+            else if (!Regex.IsMatch(textpassword.Text, @"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"))
+            {
+                MessageBox.Show(
+                    "Invalid password. Password must be at least 8 characters long and contain at least one letter and one digit",
+                    "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textpassword.Text = "";
+                textconfrimpssword.Text = "";
+                textpassword.Focus();
+            }
+            else if (!Regex.IsMatch(textEmail.Text, @"^\S+@\S+\.\S+$"))
+            {
+                MessageBox.Show("Invalid email address", "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textEmail.Text = "";
+                textEmail.Focus();
+            }
+            else if (!Regex.IsMatch(textphone.Text, @"^\d{10}$"))
+            {
+                MessageBox.Show("Invalid phone number. Phone number must be 10 digits long", "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textphone.Text = "";
+                textphone.Focus();
+            }
+            else if (!Regex.IsMatch(textposition.Text, @"^[a-zA-Z\s]+$"))
+            {
+                MessageBox.Show("Invalid Position name. Country name can only contain alphabetic characters",
+                    "Registration Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textposition.Text = "";
+                textposition.Focus();
+            }
+            else
+            {
+                connection.Open();
+                SqlCommand command;
+                bool isReg = false;
+                string query = $"SELECT COUNT(username) FROM customer WHERE username = '{textusername.Text}'";
+                using (command = new SqlCommand(query, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Read();
+                    int ch = reader.GetInt32(0);
+                    if (ch >= 1)
+                    {
+                        isReg = true;
+                    }
+                }
+
+                connection.Close();
+
+                if (!isReg)
+                {
+                    connection.Open();
+                    query = "INSERT INTO Admin (username, name, password, phone_number, email,position ) " +
+                            "VALUES (@username, @name, @password, @phone, @email,@position )";
+                    using (command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@username", textusername.Text);
+                        command.Parameters.AddWithValue("@name", textname.Text);
+                        command.Parameters.AddWithValue("@password", textpassword.Text);
+                        command.Parameters.AddWithValue("@phone", textphone.Text);
+                        command.Parameters.AddWithValue("@email", textEmail.Text);
+                        command.Parameters.AddWithValue("@position", textposition.Text);
+
+                        command.ExecuteNonQuery();
+                    }
+
+                    connection.Close();
+                    textpassword.Text = "";
+                    textconfrimpssword.Text = "";
+                    textusername.Text = "";
+                    textname.Text = "";
+                    textphone.Text = "";
+                    textposition.Text = "";
+                    textEmail.Text = "";
+                    MessageBox.Show("Admin account has been successfully created", "Admin Registration Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Username already taken, please re-enter a unique one", "Admin Registration Failed",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textusername.Text = "";
+                    textusername.Focus();
+                }
+            }
+            bunifuThinButton26_Click(sender, e);
+        }
+        private void bunifuThinButton26_Click(object sender, EventArgs e)
+        {
+            Hide(addadmin_panel, revtrip_panel, addTripPanel, addtrain_panel, rmvtrain_panel, report_panel);
+            buttoncoloring(bunifuThinButton26, revatrip_btn, addtrain_btn, rmvtrain_btn, addtrip_btn, report_btn);
+        }
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 1)
+            {
+                for (int i = 1; i < dataGridView2.SelectedRows.Count; i++)
+                {
+                    dataGridView2.SelectedRows[i].Selected = false;
+                }
+            }
+        }
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Cancel the edit operation
+            dataGridView2.CancelEdit();
+        }
+
+        private void clearadmin_btn_Click(object sender, EventArgs e)
+        {
+            textpassword.Text = "";
+            textconfrimpssword.Text = "";
+            textusername.Text = "";
+            textname.Text = "";
+            textphone.Text = "";
+            textposition.Text = "";
+            textEmail.Text = "";
+        }
+        private void report_btn_Click(object sender, EventArgs e)
+        {
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.CellClick += (s, args) =>
+            {
+                if (args.RowIndex >= 0)
+                {
+                    dataGridView2.Rows[args.RowIndex].Selected = true;
+                }
+            };
+            Hide(report_panel, addadmin_panel, revtrip_panel, addTripPanel, addtrain_panel, rmvtrain_panel);
+            buttoncoloring(report_btn, bunifuThinButton26, revatrip_btn, addtrain_btn, rmvtrain_btn, addtrip_btn);
+            connection.Open();
+            string query = "SELECT Trip.trip_id AS TripID,  Trip.source AS Source,   Trip.destination AS Destination,  COUNT(DISTINCT Seat.seat_id) * Trip.price  AS Profit,  COUNT(DISTINCT Seat.seat_id) AS Seats FROM  Seat  INNER JOIN Booking ON Seat.Trip_id = Booking.trip_id  INNER JOIN Trip ON Booking.trip_id = Trip.trip_id AND Booking.train_id = Trip.train_id WHERE Seat.state = 1 GROUP BY   Trip.trip_id,   Trip.source,  Trip.destination,  Trip.price ORDER BY Profit DESC , Seats Asc , TripID  ASC";
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                DataTable dataTable = new DataTable();
+                dataTable.Load(reader);
+                dataGridView2.DataSource = dataTable;
+                dataGridView2.Columns["TripID"].Width = 40;
+                dataGridView2.Columns["TripID"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView2.Columns["Source"].Width = 80;
+                dataGridView2.Columns["Source"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView2.Columns["Destination"].Width = 80;
+                dataGridView2.Columns["Destination"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView2.Columns["Profit"].Width = 60;
+                dataGridView2.Columns["Profit"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView2.Columns["Seats"].Width = 60;
+                dataGridView2.Columns["Seats"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                dataGridView2.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            }
+            connection.Close();
+        }
+        private void ExportToCSV(DataGridView dataGridView, string filePath)
+        {
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+                // Append column headers
+                for (int i = 0; i < dataGridView.Columns.Count; i++)
+                {
+                    sb.Append(dataGridView.Columns[i].HeaderText);
+                    if (i < dataGridView.Columns.Count - 1)
+                        sb.Append(",");
+                }
+
+                sb.AppendLine();
+                // Append data rows
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    for (int i = 0; i < row.Cells.Count; i++)
+                    {
+                        sb.Append(row.Cells[i].Value.ToString());
+                        if (i < row.Cells.Count - 1)
+                            sb.Append(",");
+                    }
+
+                    sb.AppendLine();
+                }
+                sb.AppendLine();
+                sb.AppendLine();
+                sb.Append("Best Trip : , Trip Id , Source , Destination , Profit");
+                sb.AppendLine();
+                sb.Append("," + dataGridView.Rows[0].Cells[0].Value.ToString() +
+                          "," + dataGridView.Rows[0].Cells[1].Value.ToString() +
+                          "," + dataGridView.Rows[0].Cells[2].Value.ToString() +
+                          "," + dataGridView.Rows[0].Cells[3].Value.ToString());
+                File.WriteAllText(filePath, sb.ToString());
+                MessageBox.Show($"Your Report is ready to use now ,\ncheck you path {filePath}", "Report Generate Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Cannot access the file File is already opened", "Report Generate Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+        private void Generate_btn_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog folderBrowserDialog = new OpenFileDialog())
+            {
+                folderBrowserDialog.ValidateNames = false;
+                folderBrowserDialog.CheckFileExists = false;
+                folderBrowserDialog.CheckPathExists = true;
+                folderBrowserDialog.FileName = "Select Folder";
+
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string folderPath = Path.GetDirectoryName(folderBrowserDialog.FileName);
+
+                    // Export the DataGridView to the selected folder
+                    string filePath = Path.Combine(folderPath, "TrainBookerReport.csv");
+                    ExportToCSV(dataGridView2, filePath);
+                }
+            }
         }
     }
 }

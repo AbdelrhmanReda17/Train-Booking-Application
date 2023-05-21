@@ -152,9 +152,9 @@
             // 
             loginsubmit_btn.ActiveBorderThickness = 1;
             loginsubmit_btn.ActiveCornerRadius = 20;
-            loginsubmit_btn.ActiveFillColor = Color.SeaGreen;
-            loginsubmit_btn.ActiveForecolor = Color.White;
-            loginsubmit_btn.ActiveLineColor = Color.SeaGreen;
+            loginsubmit_btn.ActiveFillColor = Color.White;
+            loginsubmit_btn.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            loginsubmit_btn.ActiveLineColor = Color.FromArgb(5, 42, 97);
             loginsubmit_btn.BackColor = Color.White;
             loginsubmit_btn.BackgroundImage = (Image)resources.GetObject("loginsubmit_btn.BackgroundImage");
             loginsubmit_btn.ButtonText = "REGISTER";
@@ -177,9 +177,9 @@
             // 
             bunifuThinButton21.ActiveBorderThickness = 1;
             bunifuThinButton21.ActiveCornerRadius = 20;
-            bunifuThinButton21.ActiveFillColor = Color.SeaGreen;
+            bunifuThinButton21.ActiveFillColor = Color.FromArgb(5, 42, 97);
             bunifuThinButton21.ActiveForecolor = Color.White;
-            bunifuThinButton21.ActiveLineColor = Color.SeaGreen;
+            bunifuThinButton21.ActiveLineColor = Color.FromArgb(5, 42, 97);
             bunifuThinButton21.BackColor = Color.White;
             bunifuThinButton21.BackgroundImage = (Image)resources.GetObject("bunifuThinButton21.BackgroundImage");
             bunifuThinButton21.ButtonText = "Clear";
@@ -231,7 +231,7 @@
             textname.Multiline = true;
             textname.Name = "textname";
             textname.RightToLeft = RightToLeft.No;
-            textname.Size = new Size(213, 25);
+            textname.Size = new Size(203, 25);
             textname.TabIndex = 11;
             // 
             // label5

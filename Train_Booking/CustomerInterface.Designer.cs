@@ -51,9 +51,10 @@ namespace Train_Booking
             dataGridView = new DataGridView();
             label2 = new Label();
             select_panel = new Panel();
+            SeatsCheckBox2 = new CheckedListBox();
             label3 = new Label();
             bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
-            SeatsCheckBox = new CheckedListBox();
+            SeatsCheckBox1 = new CheckedListBox();
             editprofile_panel = new Panel();
             checkBox1 = new CheckBox();
             txtage = new TextBox();
@@ -73,10 +74,13 @@ namespace Train_Booking
             bunifuThinButton24 = new Bunifu.Framework.UI.BunifuThinButton2();
             label4 = new Label();
             bunifuThinButton23 = new Bunifu.Framework.UI.BunifuThinButton2();
-            viewbooking_btn = new Bunifu.Framework.UI.BunifuThinButton2();
             ViewBooking_panel = new Panel();
             bunifuThinButton25 = new Bunifu.Framework.UI.BunifuThinButton2();
             ViewBookingGrid = new DataGridView();
+            label12 = new Label();
+            viewbooking_btn = new Bunifu.Framework.UI.BunifuThinButton2();
+            ApplicationPanel = new Panel();
+            label13 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             booktrip_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
@@ -84,14 +88,16 @@ namespace Train_Booking
             editprofile_panel.SuspendLayout();
             ViewBooking_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ViewBookingGrid).BeginInit();
+            ApplicationPanel.SuspendLayout();
             SuspendLayout();
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.FromArgb(5, 42, 97);
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(-2, -2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 70);
+            pictureBox1.Size = new Size(130, 81);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -100,8 +106,8 @@ namespace Train_Booking
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(5, 42, 97);
-            label1.Location = new Point(1, 85);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(29, 82);
             label1.Name = "label1";
             label1.Size = new Size(60, 15);
             label1.TabIndex = 1;
@@ -110,24 +116,24 @@ namespace Train_Booking
             // editprofile_btn
             // 
             editprofile_btn.ActiveBorderThickness = 1;
-            editprofile_btn.ActiveCornerRadius = 20;
+            editprofile_btn.ActiveCornerRadius = 1;
             editprofile_btn.ActiveFillColor = Color.FromArgb(5, 42, 97);
             editprofile_btn.ActiveForecolor = Color.White;
             editprofile_btn.ActiveLineColor = Color.FromArgb(5, 42, 97);
-            editprofile_btn.BackColor = Color.White;
+            editprofile_btn.BackColor = Color.FromArgb(5, 42, 97);
             editprofile_btn.BackgroundImage = (Image)resources.GetObject("editprofile_btn.BackgroundImage");
             editprofile_btn.ButtonText = "Edit Profile";
             editprofile_btn.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             editprofile_btn.ForeColor = Color.SeaGreen;
             editprofile_btn.IdleBorderThickness = 1;
-            editprofile_btn.IdleCornerRadius = 20;
+            editprofile_btn.IdleCornerRadius = 1;
             editprofile_btn.IdleFillColor = Color.White;
             editprofile_btn.IdleForecolor = Color.FromArgb(5, 42, 97);
             editprofile_btn.IdleLineColor = Color.FromArgb(5, 42, 97);
-            editprofile_btn.Location = new Point(10, 182);
+            editprofile_btn.Location = new Point(-2, 195);
             editprofile_btn.Margin = new Padding(4);
             editprofile_btn.Name = "editprofile_btn";
-            editprofile_btn.Size = new Size(102, 42);
+            editprofile_btn.Size = new Size(130, 62);
             editprofile_btn.TabIndex = 15;
             editprofile_btn.TextAlign = ContentAlignment.MiddleCenter;
             editprofile_btn.Click += editprofile_btn_Click;
@@ -135,24 +141,24 @@ namespace Train_Booking
             // booktrip_Btn
             // 
             booktrip_Btn.ActiveBorderThickness = 1;
-            booktrip_Btn.ActiveCornerRadius = 20;
+            booktrip_Btn.ActiveCornerRadius = 1;
             booktrip_Btn.ActiveFillColor = Color.FromArgb(5, 42, 97);
             booktrip_Btn.ActiveForecolor = Color.White;
             booktrip_Btn.ActiveLineColor = Color.FromArgb(5, 42, 97);
-            booktrip_Btn.BackColor = Color.White;
+            booktrip_Btn.BackColor = Color.FromArgb(5, 42, 97);
             booktrip_Btn.BackgroundImage = (Image)resources.GetObject("booktrip_Btn.BackgroundImage");
             booktrip_Btn.ButtonText = "Book a Trip";
             booktrip_Btn.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             booktrip_Btn.ForeColor = Color.SeaGreen;
             booktrip_Btn.IdleBorderThickness = 1;
-            booktrip_Btn.IdleCornerRadius = 20;
+            booktrip_Btn.IdleCornerRadius = 1;
             booktrip_Btn.IdleFillColor = Color.White;
             booktrip_Btn.IdleForecolor = Color.FromArgb(5, 42, 97);
             booktrip_Btn.IdleLineColor = Color.FromArgb(5, 42, 97);
-            booktrip_Btn.Location = new Point(10, 132);
+            booktrip_Btn.Location = new Point(-2, 132);
             booktrip_Btn.Margin = new Padding(4);
             booktrip_Btn.Name = "booktrip_Btn";
-            booktrip_Btn.Size = new Size(102, 42);
+            booktrip_Btn.Size = new Size(130, 55);
             booktrip_Btn.TabIndex = 14;
             booktrip_Btn.TextAlign = ContentAlignment.MiddleCenter;
             booktrip_Btn.Click += show_Click;
@@ -160,24 +166,24 @@ namespace Train_Booking
             // logout_btn
             // 
             logout_btn.ActiveBorderThickness = 1;
-            logout_btn.ActiveCornerRadius = 20;
-            logout_btn.ActiveFillColor = Color.FromArgb(5, 42, 97);
-            logout_btn.ActiveForecolor = Color.White;
+            logout_btn.ActiveCornerRadius = 1;
+            logout_btn.ActiveFillColor = Color.White;
+            logout_btn.ActiveForecolor = Color.FromArgb(5, 42, 97);
             logout_btn.ActiveLineColor = Color.FromArgb(5, 42, 97);
-            logout_btn.BackColor = Color.White;
+            logout_btn.BackColor = Color.FromArgb(5, 42, 97);
             logout_btn.BackgroundImage = (Image)resources.GetObject("logout_btn.BackgroundImage");
             logout_btn.ButtonText = "Log Out";
             logout_btn.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             logout_btn.ForeColor = Color.SeaGreen;
             logout_btn.IdleBorderThickness = 1;
-            logout_btn.IdleCornerRadius = 20;
-            logout_btn.IdleFillColor = Color.White;
-            logout_btn.IdleForecolor = Color.FromArgb(5, 42, 97);
+            logout_btn.IdleCornerRadius = 1;
+            logout_btn.IdleFillColor = Color.FromArgb(5, 42, 97);
+            logout_btn.IdleForecolor = Color.White;
             logout_btn.IdleLineColor = Color.FromArgb(5, 42, 97);
-            logout_btn.Location = new Point(14, 395);
+            logout_btn.Location = new Point(-2, 406);
             logout_btn.Margin = new Padding(4);
             logout_btn.Name = "logout_btn";
-            logout_btn.Size = new Size(98, 42);
+            logout_btn.Size = new Size(130, 41);
             logout_btn.TabIndex = 16;
             logout_btn.TextAlign = ContentAlignment.MiddleCenter;
             logout_btn.Click += logout_btn_Click;
@@ -187,9 +193,9 @@ namespace Train_Booking
             booktrip_panel.Controls.Add(bunifuThinButton21);
             booktrip_panel.Controls.Add(dataGridView);
             booktrip_panel.Controls.Add(label2);
-            booktrip_panel.Location = new Point(133, 18);
+            booktrip_panel.Location = new Point(130, 0);
             booktrip_panel.Name = "booktrip_panel";
-            booktrip_panel.Size = new Size(385, 417);
+            booktrip_panel.Size = new Size(398, 450);
             booktrip_panel.TabIndex = 17;
             // 
             // bunifuThinButton21
@@ -209,10 +215,10 @@ namespace Train_Booking
             bunifuThinButton21.IdleFillColor = Color.White;
             bunifuThinButton21.IdleForecolor = Color.FromArgb(5, 42, 97);
             bunifuThinButton21.IdleLineColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton21.Location = new Point(103, 375);
+            bunifuThinButton21.Location = new Point(52, 398);
             bunifuThinButton21.Margin = new Padding(4);
             bunifuThinButton21.Name = "bunifuThinButton21";
-            bunifuThinButton21.Size = new Size(121, 42);
+            bunifuThinButton21.Size = new Size(273, 42);
             bunifuThinButton21.TabIndex = 18;
             bunifuThinButton21.TextAlign = ContentAlignment.MiddleCenter;
             bunifuThinButton21.Click += bunifuThinButton21_Click;
@@ -231,7 +237,7 @@ namespace Train_Booking
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView.BackgroundColor = Color.White;
-            dataGridView.BorderStyle = BorderStyle.Fixed3D;
+            dataGridView.BorderStyle = BorderStyle.None;
             dataGridView.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(5, 42, 97);
@@ -245,12 +251,12 @@ namespace Train_Booking
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(5, 42, 97);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(5, 42, 97);
             dataGridViewCellStyle3.SelectionForeColor = Color.White;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView.Location = new Point(3, 24);
+            dataGridView.Location = new Point(3, 30);
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -267,7 +273,7 @@ namespace Train_Booking
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
             dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView.RowTemplate.Height = 25;
-            dataGridView.Size = new Size(379, 350);
+            dataGridView.Size = new Size(379, 361);
             dataGridView.TabIndex = 18;
             dataGridView.CellDoubleClick += dataGridView_CellDoubleClick;
             dataGridView.SelectionChanged += dataGridView_SelectionChanged;
@@ -275,32 +281,45 @@ namespace Train_Booking
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Nirmala UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.FromArgb(5, 42, 97);
-            label2.Location = new Point(0, 0);
+            label2.Location = new Point(3, 3);
             label2.Name = "label2";
-            label2.Size = new Size(93, 21);
+            label2.Size = new Size(108, 25);
             label2.TabIndex = 0;
             label2.Text = "Select Trip ";
             // 
             // select_panel
             // 
+            select_panel.Controls.Add(SeatsCheckBox2);
             select_panel.Controls.Add(label3);
             select_panel.Controls.Add(bunifuThinButton22);
-            select_panel.Controls.Add(SeatsCheckBox);
-            select_panel.Location = new Point(130, 20);
+            select_panel.Controls.Add(SeatsCheckBox1);
+            select_panel.Location = new Point(130, 0);
             select_panel.Name = "select_panel";
-            select_panel.Size = new Size(385, 417);
+            select_panel.Size = new Size(385, 450);
             select_panel.TabIndex = 19;
+            // 
+            // SeatsCheckBox2
+            // 
+            SeatsCheckBox2.BorderStyle = BorderStyle.None;
+            SeatsCheckBox2.ColumnWidth = 368;
+            SeatsCheckBox2.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            SeatsCheckBox2.ForeColor = Color.FromArgb(5, 42, 97);
+            SeatsCheckBox2.FormattingEnabled = true;
+            SeatsCheckBox2.Location = new Point(192, 39);
+            SeatsCheckBox2.Name = "SeatsCheckBox2";
+            SeatsCheckBox2.Size = new Size(136, 330);
+            SeatsCheckBox2.TabIndex = 20;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Nirmala UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.FromArgb(5, 42, 97);
             label3.Location = new Point(3, 3);
             label3.Name = "label3";
-            label3.Size = new Size(100, 21);
+            label3.Size = new Size(115, 25);
             label3.TabIndex = 19;
             label3.Text = "Select Seats";
             // 
@@ -321,24 +340,25 @@ namespace Train_Booking
             bunifuThinButton22.IdleFillColor = Color.White;
             bunifuThinButton22.IdleForecolor = Color.FromArgb(5, 42, 97);
             bunifuThinButton22.IdleLineColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton22.Location = new Point(118, 368);
+            bunifuThinButton22.Location = new Point(52, 408);
             bunifuThinButton22.Margin = new Padding(4);
             bunifuThinButton22.Name = "bunifuThinButton22";
-            bunifuThinButton22.Size = new Size(137, 42);
+            bunifuThinButton22.Size = new Size(273, 42);
             bunifuThinButton22.TabIndex = 16;
             bunifuThinButton22.TextAlign = ContentAlignment.MiddleCenter;
             bunifuThinButton22.Click += bunifuThinButton22_Click;
             // 
-            // SeatsCheckBox
+            // SeatsCheckBox1
             // 
-            SeatsCheckBox.ColumnWidth = 368;
-            SeatsCheckBox.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            SeatsCheckBox.ForeColor = Color.FromArgb(5, 42, 97);
-            SeatsCheckBox.FormattingEnabled = true;
-            SeatsCheckBox.Location = new Point(90, 27);
-            SeatsCheckBox.Name = "SeatsCheckBox";
-            SeatsCheckBox.Size = new Size(192, 334);
-            SeatsCheckBox.TabIndex = 1;
+            SeatsCheckBox1.BorderStyle = BorderStyle.None;
+            SeatsCheckBox1.ColumnWidth = 368;
+            SeatsCheckBox1.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            SeatsCheckBox1.ForeColor = Color.FromArgb(5, 42, 97);
+            SeatsCheckBox1.FormattingEnabled = true;
+            SeatsCheckBox1.Location = new Point(39, 39);
+            SeatsCheckBox1.Name = "SeatsCheckBox1";
+            SeatsCheckBox1.Size = new Size(136, 330);
+            SeatsCheckBox1.TabIndex = 1;
             // 
             // editprofile_panel
             // 
@@ -360,9 +380,9 @@ namespace Train_Booking
             editprofile_panel.Controls.Add(bunifuThinButton24);
             editprofile_panel.Controls.Add(label4);
             editprofile_panel.Controls.Add(bunifuThinButton23);
-            editprofile_panel.Location = new Point(127, 20);
+            editprofile_panel.Location = new Point(130, 0);
             editprofile_panel.Name = "editprofile_panel";
-            editprofile_panel.Size = new Size(385, 417);
+            editprofile_panel.Size = new Size(385, 450);
             editprofile_panel.TabIndex = 20;
             // 
             // checkBox1
@@ -370,7 +390,7 @@ namespace Train_Booking
             checkBox1.AutoSize = true;
             checkBox1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             checkBox1.ForeColor = Color.FromArgb(5, 42, 97);
-            checkBox1.Location = new Point(248, 112);
+            checkBox1.Location = new Point(216, 156);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(112, 19);
             checkBox1.TabIndex = 35;
@@ -383,7 +403,7 @@ namespace Train_Booking
             txtage.BorderStyle = BorderStyle.FixedSingle;
             txtage.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             txtage.ForeColor = Color.FromArgb(5, 42, 97);
-            txtage.Location = new Point(222, 237);
+            txtage.Location = new Point(235, 249);
             txtage.Name = "txtage";
             txtage.Size = new Size(78, 27);
             txtage.TabIndex = 34;
@@ -393,7 +413,7 @@ namespace Train_Booking
             label11.AutoSize = true;
             label11.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label11.ForeColor = Color.FromArgb(5, 42, 97);
-            label11.Location = new Point(222, 215);
+            label11.Location = new Point(235, 227);
             label11.Name = "label11";
             label11.Size = new Size(36, 19);
             label11.TabIndex = 33;
@@ -404,7 +424,7 @@ namespace Train_Booking
             txtcountry.BorderStyle = BorderStyle.FixedSingle;
             txtcountry.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             txtcountry.ForeColor = Color.FromArgb(5, 42, 97);
-            txtcountry.Location = new Point(182, 300);
+            txtcountry.Location = new Point(195, 312);
             txtcountry.Name = "txtcountry";
             txtcountry.Size = new Size(133, 27);
             txtcountry.TabIndex = 32;
@@ -414,7 +434,7 @@ namespace Train_Booking
             label10.AutoSize = true;
             label10.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label10.ForeColor = Color.FromArgb(5, 42, 97);
-            label10.Location = new Point(182, 278);
+            label10.Location = new Point(195, 290);
             label10.Name = "label10";
             label10.Size = new Size(63, 19);
             label10.TabIndex = 31;
@@ -425,7 +445,7 @@ namespace Train_Booking
             txtcity.BorderStyle = BorderStyle.FixedSingle;
             txtcity.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             txtcity.ForeColor = Color.FromArgb(5, 42, 97);
-            txtcity.Location = new Point(15, 300);
+            txtcity.Location = new Point(28, 312);
             txtcity.Name = "txtcity";
             txtcity.Size = new Size(117, 27);
             txtcity.TabIndex = 30;
@@ -435,7 +455,7 @@ namespace Train_Booking
             label9.AutoSize = true;
             label9.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.FromArgb(5, 42, 97);
-            label9.Location = new Point(15, 278);
+            label9.Location = new Point(28, 290);
             label9.Name = "label9";
             label9.Size = new Size(35, 19);
             label9.TabIndex = 29;
@@ -446,7 +466,7 @@ namespace Train_Booking
             txtphone.BorderStyle = BorderStyle.FixedSingle;
             txtphone.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             txtphone.ForeColor = Color.FromArgb(5, 42, 97);
-            txtphone.Location = new Point(14, 237);
+            txtphone.Location = new Point(27, 249);
             txtphone.Name = "txtphone";
             txtphone.Size = new Size(148, 27);
             txtphone.TabIndex = 28;
@@ -456,7 +476,7 @@ namespace Train_Booking
             label8.AutoSize = true;
             label8.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.FromArgb(5, 42, 97);
-            label8.Location = new Point(14, 215);
+            label8.Location = new Point(27, 227);
             label8.Name = "label8";
             label8.Size = new Size(110, 19);
             label8.TabIndex = 27;
@@ -467,7 +487,7 @@ namespace Train_Booking
             txtpassword.BorderStyle = BorderStyle.FixedSingle;
             txtpassword.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             txtpassword.ForeColor = Color.FromArgb(5, 42, 97);
-            txtpassword.Location = new Point(14, 111);
+            txtpassword.Location = new Point(27, 123);
             txtpassword.Name = "txtpassword";
             txtpassword.PasswordChar = '*';
             txtpassword.Size = new Size(228, 27);
@@ -478,7 +498,7 @@ namespace Train_Booking
             label7.AutoSize = true;
             label7.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.FromArgb(5, 42, 97);
-            label7.Location = new Point(15, 89);
+            label7.Location = new Point(28, 101);
             label7.Name = "label7";
             label7.Size = new Size(73, 19);
             label7.TabIndex = 25;
@@ -490,7 +510,7 @@ namespace Train_Booking
             txtemail.BorderStyle = BorderStyle.FixedSingle;
             txtemail.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
             txtemail.ForeColor = Color.FromArgb(5, 42, 97);
-            txtemail.Location = new Point(14, 173);
+            txtemail.Location = new Point(27, 185);
             txtemail.Name = "txtemail";
             txtemail.Size = new Size(231, 27);
             txtemail.TabIndex = 24;
@@ -500,7 +520,7 @@ namespace Train_Booking
             label6.AutoSize = true;
             label6.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.FromArgb(5, 42, 97);
-            label6.Location = new Point(14, 151);
+            label6.Location = new Point(27, 163);
             label6.Name = "label6";
             label6.Size = new Size(45, 19);
             label6.TabIndex = 23;
@@ -509,11 +529,11 @@ namespace Train_Booking
             // txtname
             // 
             txtname.BorderStyle = BorderStyle.FixedSingle;
-            txtname.Font = new Font("Nirmala UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            txtname.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtname.ForeColor = Color.FromArgb(5, 42, 97);
-            txtname.Location = new Point(14, 49);
+            txtname.Location = new Point(27, 61);
             txtname.Name = "txtname";
-            txtname.Size = new Size(228, 27);
+            txtname.Size = new Size(228, 29);
             txtname.TabIndex = 22;
             // 
             // label5
@@ -521,7 +541,7 @@ namespace Train_Booking
             label5.AutoSize = true;
             label5.Font = new Font("Nirmala UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.FromArgb(5, 42, 97);
-            label5.Location = new Point(15, 27);
+            label5.Location = new Point(28, 39);
             label5.Name = "label5";
             label5.Size = new Size(49, 19);
             label5.TabIndex = 21;
@@ -555,13 +575,15 @@ namespace Train_Booking
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Nirmala UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.FlatStyle = FlatStyle.Popup;
+            label4.Font = new Font("Nirmala UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.FromArgb(5, 42, 97);
             label4.Location = new Point(3, 3);
             label4.Name = "label4";
-            label4.Size = new Size(95, 21);
+            label4.Size = new Size(110, 25);
             label4.TabIndex = 19;
             label4.Text = "Edit Profile";
+            label4.TextAlign = ContentAlignment.TopCenter;
             // 
             // bunifuThinButton23
             // 
@@ -580,7 +602,7 @@ namespace Train_Booking
             bunifuThinButton23.IdleFillColor = Color.White;
             bunifuThinButton23.IdleForecolor = Color.FromArgb(5, 42, 97);
             bunifuThinButton23.IdleLineColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton23.Location = new Point(38, 368);
+            bunifuThinButton23.Location = new Point(27, 368);
             bunifuThinButton23.Margin = new Padding(4);
             bunifuThinButton23.Name = "bunifuThinButton23";
             bunifuThinButton23.Size = new Size(137, 42);
@@ -588,38 +610,14 @@ namespace Train_Booking
             bunifuThinButton23.TextAlign = ContentAlignment.MiddleCenter;
             bunifuThinButton23.Click += bunifuThinButton23_Click;
             // 
-            // viewbooking_btn
-            // 
-            viewbooking_btn.ActiveBorderThickness = 1;
-            viewbooking_btn.ActiveCornerRadius = 20;
-            viewbooking_btn.ActiveFillColor = Color.FromArgb(5, 42, 97);
-            viewbooking_btn.ActiveForecolor = Color.White;
-            viewbooking_btn.ActiveLineColor = Color.FromArgb(5, 42, 97);
-            viewbooking_btn.BackColor = Color.White;
-            viewbooking_btn.BackgroundImage = (Image)resources.GetObject("viewbooking_btn.BackgroundImage");
-            viewbooking_btn.ButtonText = "View Bookings";
-            viewbooking_btn.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            viewbooking_btn.ForeColor = Color.SeaGreen;
-            viewbooking_btn.IdleBorderThickness = 1;
-            viewbooking_btn.IdleCornerRadius = 20;
-            viewbooking_btn.IdleFillColor = Color.White;
-            viewbooking_btn.IdleForecolor = Color.FromArgb(5, 42, 97);
-            viewbooking_btn.IdleLineColor = Color.FromArgb(5, 42, 97);
-            viewbooking_btn.Location = new Point(10, 232);
-            viewbooking_btn.Margin = new Padding(4);
-            viewbooking_btn.Name = "viewbooking_btn";
-            viewbooking_btn.Size = new Size(102, 42);
-            viewbooking_btn.TabIndex = 21;
-            viewbooking_btn.TextAlign = ContentAlignment.MiddleCenter;
-            viewbooking_btn.Click += viewbooking_btn_Click;
-            // 
             // ViewBooking_panel
             // 
             ViewBooking_panel.Controls.Add(bunifuThinButton25);
             ViewBooking_panel.Controls.Add(ViewBookingGrid);
-            ViewBooking_panel.Location = new Point(123, 18);
+            ViewBooking_panel.Controls.Add(label12);
+            ViewBooking_panel.Location = new Point(130, 0);
             ViewBooking_panel.Name = "ViewBooking_panel";
-            ViewBooking_panel.Size = new Size(389, 421);
+            ViewBooking_panel.Size = new Size(389, 444);
             ViewBooking_panel.TabIndex = 22;
             // 
             // bunifuThinButton25
@@ -639,10 +637,10 @@ namespace Train_Booking
             bunifuThinButton25.IdleFillColor = Color.White;
             bunifuThinButton25.IdleForecolor = Color.FromArgb(5, 42, 97);
             bunifuThinButton25.IdleLineColor = Color.FromArgb(5, 42, 97);
-            bunifuThinButton25.Location = new Point(89, 373);
+            bunifuThinButton25.Location = new Point(52, 398);
             bunifuThinButton25.Margin = new Padding(4);
             bunifuThinButton25.Name = "bunifuThinButton25";
-            bunifuThinButton25.Size = new Size(200, 42);
+            bunifuThinButton25.Size = new Size(273, 42);
             bunifuThinButton25.TabIndex = 23;
             bunifuThinButton25.TextAlign = ContentAlignment.MiddleCenter;
             bunifuThinButton25.Click += bunifuThinButton25_Click;
@@ -661,7 +659,7 @@ namespace Train_Booking
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             ViewBookingGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             ViewBookingGrid.BackgroundColor = Color.White;
-            ViewBookingGrid.BorderStyle = BorderStyle.Fixed3D;
+            ViewBookingGrid.BorderStyle = BorderStyle.None;
             ViewBookingGrid.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
             dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle7.BackColor = Color.FromArgb(5, 42, 97);
@@ -680,7 +678,7 @@ namespace Train_Booking
             dataGridViewCellStyle8.SelectionForeColor = Color.White;
             dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
             ViewBookingGrid.DefaultCellStyle = dataGridViewCellStyle8;
-            ViewBookingGrid.Location = new Point(7, 5);
+            ViewBookingGrid.Location = new Point(5, 30);
             ViewBookingGrid.Name = "ViewBookingGrid";
             ViewBookingGrid.ReadOnly = true;
             dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -697,10 +695,74 @@ namespace Train_Booking
             dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
             ViewBookingGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
             ViewBookingGrid.RowTemplate.Height = 25;
-            ViewBookingGrid.Size = new Size(374, 363);
+            ViewBookingGrid.Size = new Size(379, 361);
             ViewBookingGrid.TabIndex = 18;
             ViewBookingGrid.CellDoubleClick += dataGridView_CellDoubleClick;
             ViewBookingGrid.SelectionChanged += dataGridView_SelectionChanged;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Nirmala UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = Color.FromArgb(5, 42, 97);
+            label12.Location = new Point(3, 3);
+            label12.Name = "label12";
+            label12.Size = new Size(187, 25);
+            label12.TabIndex = 19;
+            label12.Text = "Your Trip's Booking";
+            // 
+            // viewbooking_btn
+            // 
+            viewbooking_btn.ActiveBorderThickness = 1;
+            viewbooking_btn.ActiveCornerRadius = 1;
+            viewbooking_btn.ActiveFillColor = Color.FromArgb(5, 42, 97);
+            viewbooking_btn.ActiveForecolor = Color.White;
+            viewbooking_btn.ActiveLineColor = Color.FromArgb(5, 42, 97);
+            viewbooking_btn.BackColor = Color.FromArgb(5, 42, 97);
+            viewbooking_btn.BackgroundImage = (Image)resources.GetObject("viewbooking_btn.BackgroundImage");
+            viewbooking_btn.ButtonText = "View Bookings";
+            viewbooking_btn.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            viewbooking_btn.ForeColor = Color.SeaGreen;
+            viewbooking_btn.IdleBorderThickness = 1;
+            viewbooking_btn.IdleCornerRadius = 1;
+            viewbooking_btn.IdleFillColor = Color.White;
+            viewbooking_btn.IdleForecolor = Color.FromArgb(5, 42, 97);
+            viewbooking_btn.IdleLineColor = Color.FromArgb(5, 42, 97);
+            viewbooking_btn.Location = new Point(-4, 265);
+            viewbooking_btn.Margin = new Padding(4);
+            viewbooking_btn.Name = "viewbooking_btn";
+            viewbooking_btn.Size = new Size(130, 55);
+            viewbooking_btn.TabIndex = 21;
+            viewbooking_btn.TextAlign = ContentAlignment.MiddleCenter;
+            viewbooking_btn.Click += viewbooking_btn_Click;
+            // 
+            // ApplicationPanel
+            // 
+            ApplicationPanel.BackColor = Color.FromArgb(5, 42, 97);
+            ApplicationPanel.BorderStyle = BorderStyle.Fixed3D;
+            ApplicationPanel.Controls.Add(label13);
+            ApplicationPanel.Controls.Add(pictureBox1);
+            ApplicationPanel.Controls.Add(label1);
+            ApplicationPanel.Controls.Add(booktrip_Btn);
+            ApplicationPanel.Controls.Add(logout_btn);
+            ApplicationPanel.Controls.Add(viewbooking_btn);
+            ApplicationPanel.Controls.Add(editprofile_btn);
+            ApplicationPanel.ForeColor = Color.FromArgb(5, 42, 97);
+            ApplicationPanel.Location = new Point(0, 0);
+            ApplicationPanel.Name = "ApplicationPanel";
+            ApplicationPanel.Size = new Size(130, 450);
+            ApplicationPanel.TabIndex = 23;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.ForeColor = Color.White;
+            label13.Location = new Point(49, 97);
+            label13.Name = "label13";
+            label13.Size = new Size(15, 15);
+            label13.TabIndex = 22;
+            label13.Text = "A";
             // 
             // CustomerInterface
             // 
@@ -708,16 +770,11 @@ namespace Train_Booking
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(516, 450);
-            Controls.Add(ViewBooking_panel);
-            Controls.Add(viewbooking_btn);
-            Controls.Add(editprofile_panel);
             Controls.Add(select_panel);
             Controls.Add(booktrip_panel);
-            Controls.Add(logout_btn);
-            Controls.Add(editprofile_btn);
-            Controls.Add(booktrip_Btn);
-            Controls.Add(label1);
-            Controls.Add(pictureBox1);
+            Controls.Add(editprofile_panel);
+            Controls.Add(ViewBooking_panel);
+            Controls.Add(ApplicationPanel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "CustomerInterface";
             StartPosition = FormStartPosition.CenterScreen;
@@ -732,9 +789,11 @@ namespace Train_Booking
             editprofile_panel.ResumeLayout(false);
             editprofile_panel.PerformLayout();
             ViewBooking_panel.ResumeLayout(false);
+            ViewBooking_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ViewBookingGrid).EndInit();
+            ApplicationPanel.ResumeLayout(false);
+            ApplicationPanel.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -749,7 +808,7 @@ namespace Train_Booking
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
         private DataGridView dataGridView;
         private Panel select_panel;
-        private CheckedListBox SeatsCheckBox;
+        private CheckedListBox SeatsCheckBox1;
         private Label label3;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton22;
         private Panel editprofile_panel;
@@ -775,5 +834,9 @@ namespace Train_Booking
         private Panel ViewBooking_panel;
         private DataGridView ViewBookingGrid;
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton25;
+        private Panel ApplicationPanel;
+        private CheckedListBox SeatsCheckBox2;
+        private Label label12;
+        private Label label13;
     }
 }

@@ -28,17 +28,27 @@ namespace Train_Booking
         public SqlConnection connection = new SqlConnection(str);
         private void buttoncoloring(BunifuThinButton2 btn1, BunifuThinButton2 btn2, BunifuThinButton2 btn3)
         {
-            btn1.IdleForecolor = Color.White;
-            btn1.IdleFillColor = Color.FromArgb(5, 42, 97);
-            btn1.IdleLineColor = Color.FromArgb(5, 42, 97);
-
-            btn2.IdleForecolor = Color.FromArgb(5, 42, 97);
-            btn2.IdleFillColor = Color.White;
+            btn2.IdleForecolor = Color.White;
+            btn2.IdleFillColor = Color.FromArgb(5, 42, 97);
             btn2.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn2.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            btn2.ActiveFillColor = Color.White;
+            btn2.ActiveLineColor = Color.FromArgb(5, 42, 97);
 
-            btn3.IdleForecolor = Color.FromArgb(5, 42, 97);
-            btn3.IdleFillColor = Color.White;
+
+            btn1.IdleForecolor = Color.FromArgb(5, 42, 97);
+            btn1.IdleFillColor = Color.White;
+            btn1.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn1.ActiveLineColor = Color.FromArgb(5, 42, 97);
+            btn1.ActiveFillColor = Color.White;
+            btn1.ActiveLineColor = Color.FromArgb(5, 42, 97);
+
+            btn3.IdleForecolor = Color.White;
+            btn3.IdleFillColor = Color.FromArgb(5, 42, 97);
             btn3.IdleLineColor = Color.FromArgb(5, 42, 97);
+            btn3.ActiveForecolor = Color.FromArgb(5, 42, 97);
+            btn3.ActiveFillColor = Color.White;
+            btn3.ActiveLineColor = Color.FromArgb(5, 42, 97);
         }
         private void Hide(Panel first, Panel second, Panel third)
         {
@@ -55,15 +65,10 @@ namespace Train_Booking
 
         private void CustomerInterface_Load(object sender, EventArgs e)
         {
-            label1.Text = $"Welcome, {customer.name}";
+            label1.Text = $"Welcome"; label13.Text = $"{customer.name}";
             show_Click(sender, e);
         }
 
-        private void logout_btn_Click(object sender, EventArgs e)
-        {
-            new StartPage().Show();
-            Hide();
-        }
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView.SelectedRows.Count > 1)
@@ -104,7 +109,27 @@ namespace Train_Booking
             {
                 connection.Open();
                 SqlCommand command;
-                string query = "SELECT Trip.trip_id AS TripID, Trip.source AS Source, Trip.destination AS Destination, Trip.price AS Price, Trip.trip_date AS TripDate,CASE WHEN COUNT(Seat.State) = 0 THEN 'NO SEATS' ELSE CAST(COUNT(Seat.State) AS NVARCHAR(10)) END AS FreeSeats FROM Trip LEFT JOIN Seat ON Trip.train_id = Seat.Train_train_id AND Trip.trip_id = Seat.Trip_id WHERE (Seat.State = 0 OR Seat.State IS NULL) AND Cast(Trip.trip_date as date) >= @date GROUP BY Trip.trip_id, Trip.source, Trip.destination, Trip.price, Trip.trip_date;";
+                string query = @"SELECT
+                    Trip.trip_id AS TripID,
+                    Trip.source AS Source,
+                    Trip.destination AS Destination,
+                    Trip.price AS Price,
+                    Trip.trip_date AS TripDate,
+                    CASE
+                        WHEN (SELECT COUNT(*) FROM Seat WHERE Seat.Trip_id = Trip.trip_id AND (Seat.State = 0 OR Seat.State IS NULL)) = 0 THEN 'NO SEATS'
+                        ELSE CAST((SELECT COUNT(*) FROM Seat WHERE Seat.Trip_id = Trip.trip_id AND (Seat.State = 0 OR Seat.State IS NULL)) AS NVARCHAR(10))
+                    END AS FreeSeats
+                FROM
+                    Trip
+                    LEFT JOIN Seat ON Trip.train_id = Seat.Train_train_id AND Trip.trip_id = Seat.Trip_id
+                WHERE
+                    Cast(Trip.trip_date AS date) >= @date
+                GROUP BY
+                    Trip.trip_id,
+                    Trip.source,
+                    Trip.destination,
+                    Trip.price,
+                    Trip.trip_date;";
                 using (command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@date", DateTime.Now);
@@ -115,9 +140,9 @@ namespace Train_Booking
                     dataGridView.Columns["TripID"].Visible = false;
                     dataGridView.Columns["Price"].Width = 43;
                     dataGridView.Columns["Price"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dataGridView.Columns["Source"].Width = 75;
+                    dataGridView.Columns["Source"].Width = 72;
                     dataGridView.Columns["Source"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    dataGridView.Columns["Destination"].Width = 75;
+                    dataGridView.Columns["Destination"].Width = 72;
                     dataGridView.Columns["Destination"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                     dataGridView.Columns["TripDate"].Width = 72;
                     dataGridView.Columns["TripDate"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -126,7 +151,9 @@ namespace Train_Booking
                     dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 }
                 connection.Close();
-                SeatsCheckBox.Items.Clear();
+                SeatsCheckBox1.Items.Clear();
+                SeatsCheckBox2.Items.Clear();
+
             }
             catch { }
         }
@@ -170,16 +197,30 @@ namespace Train_Booking
                 connection.Close();
                 for (int i = 0; i < lst.Count; i++)
                 {
-                    SeatsCheckBox.Items.Add(lst[i] - LeastId + 1);
+                    if (i % 2 == 0)
+                    {
+                        SeatsCheckBox1.Items.Add(lst[i] - LeastId + 1);
+                    }
+                    else
+                    {
+                        SeatsCheckBox2.Items.Add(lst[i] - LeastId + 1);
+                    }
                 }
             }
         }
         private void bunifuThinButton22_Click(object sender, EventArgs e)
         {
-            var selectedItems = SeatsCheckBox.CheckedItems;
+            var selectedItems1 = SeatsCheckBox1.CheckedItems;
+            var selectedItems2 = SeatsCheckBox2.CheckedItems;
+
             List<int> selectedItemList = new List<int>();
 
-            foreach (var item in selectedItems)
+            foreach (var item in selectedItems1)
+            {
+                int index = (int)item + LeastId - 1;
+                selectedItemList.Add(index);
+            }
+            foreach (var item in selectedItems2)
             {
                 int index = (int)item + LeastId - 1;
                 selectedItemList.Add(index);
@@ -327,7 +368,8 @@ namespace Train_Booking
                     customer.password = txtpassword.Text;
                     customer.name = txtname.Text;
                     customer.phone = txtphone.Text;
-                    label1.Text = $"Welcome, {customer.name}";
+                    label1.Text = $"Welcome + ";
+                    label13.Text = "{customer.name}";
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -348,7 +390,7 @@ namespace Train_Booking
         {
             Hide(ViewBooking_panel, editprofile_panel, booktrip_panel);
             select_panel.Visible = false;
-            buttoncoloring(viewbooking_btn, editprofile_btn, viewbooking_btn);
+            buttoncoloring(viewbooking_btn, editprofile_btn, booktrip_Btn);
             ViewBookingGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ViewBookingGrid.CellClick += (s, args) =>
             {
@@ -370,7 +412,7 @@ namespace Train_Booking
                 ViewBookingGrid.DataSource = dataTable;
                 ViewBookingGrid.Columns["Trip_id"].Visible = false;
                 ViewBookingGrid.Columns["ID"].Visible = false;
-                ViewBookingGrid.Columns["Seats"].Width = 40;
+                ViewBookingGrid.Columns["Seats"].Width = 35;
                 ViewBookingGrid.Columns["Seats"].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
                 ViewBookingGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 reader.Close();
@@ -399,6 +441,12 @@ namespace Train_Booking
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             viewbooking_btn_Click(sender, e);
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            new StartPage().Show();
+            Hide();
         }
     }
 }
