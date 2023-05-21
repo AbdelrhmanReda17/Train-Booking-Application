@@ -24,7 +24,7 @@ namespace Train_Booking
     {
         public Customer? customer = null;
         public Trip? trip = new Trip();
-        public static string str = "Server=ABDELRHMAN\\SQLEXPRESS; Initial Catalog=Train-Booking; Integrated Security=true;";
+        public static string str = "Server=104.155.147.34; Initial Catalog=Train-Booking; User ID=sqlserver; Password=12345678;";
         public SqlConnection connection = new SqlConnection(str);
         private void buttoncoloring(BunifuThinButton2 btn1, BunifuThinButton2 btn2, BunifuThinButton2 btn3)
         {
@@ -153,7 +153,6 @@ namespace Train_Booking
                 connection.Close();
                 SeatsCheckBox1.Items.Clear();
                 SeatsCheckBox2.Items.Clear();
-
             }
             catch { }
         }

@@ -130,7 +130,7 @@ namespace Train_Booking
             editprofile_btn.IdleFillColor = Color.White;
             editprofile_btn.IdleForecolor = Color.FromArgb(5, 42, 97);
             editprofile_btn.IdleLineColor = Color.FromArgb(5, 42, 97);
-            editprofile_btn.Location = new Point(-2, 195);
+            editprofile_btn.Location = new Point(-2, 265);
             editprofile_btn.Margin = new Padding(4);
             editprofile_btn.Name = "editprofile_btn";
             editprofile_btn.Size = new Size(130, 62);
@@ -728,7 +728,7 @@ namespace Train_Booking
             viewbooking_btn.IdleFillColor = Color.White;
             viewbooking_btn.IdleForecolor = Color.FromArgb(5, 42, 97);
             viewbooking_btn.IdleLineColor = Color.FromArgb(5, 42, 97);
-            viewbooking_btn.Location = new Point(-4, 265);
+            viewbooking_btn.Location = new Point(-2, 195);
             viewbooking_btn.Margin = new Padding(4);
             viewbooking_btn.Name = "viewbooking_btn";
             viewbooking_btn.Size = new Size(130, 55);
@@ -770,8 +770,8 @@ namespace Train_Booking
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(516, 450);
-            Controls.Add(select_panel);
             Controls.Add(booktrip_panel);
+            Controls.Add(select_panel);
             Controls.Add(editprofile_panel);
             Controls.Add(ViewBooking_panel);
             Controls.Add(ApplicationPanel);

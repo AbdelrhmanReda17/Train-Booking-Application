@@ -1443,13 +1443,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(516, 450);
+            Controls.Add(addtrain_panel);
+            Controls.Add(addTripPanel);
+            Controls.Add(managepanel);
             Controls.Add(report_panel);
             Controls.Add(addadmin_panel);
             Controls.Add(rmvtrain_panel);
             Controls.Add(panel1);
-            Controls.Add(managepanel);
-            Controls.Add(addTripPanel);
-            Controls.Add(addtrain_panel);
             Controls.Add(revtrip_panel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "AdminInterface";

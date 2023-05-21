@@ -23,9 +23,8 @@ namespace Train_Booking
     public partial class AdminInterface : Form
     {
         public Admin? admin = null;
-        public static string str = "Server=ABDELRHMAN\\SQLEXPRESS; Initial Catalog=Train-Booking; Integrated Security=true;";
+        public static string str = "Server=104.155.147.34; Initial Catalog=Train-Booking; User ID=sqlserver; Password=12345678;";
         public SqlConnection connection = new SqlConnection(str);
-
         public AdminInterface(Admin? admin)
         {
             this.admin = admin;
@@ -162,15 +161,23 @@ namespace Train_Booking
             }
             else if (!Regex.IsMatch(txtsource.Text, @"^[a-zA-Z\s]+$"))
             {
-                MessageBox.Show("Invalid Source. Name can only contain alphabetic characters", "Registration Failed",
+                MessageBox.Show("Invalid Source. can only contain alphabetic characters", "Add Trip Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtsource.Text = "";
+                txtsource.Focus();
+            }
+            else if (txtdestination.Text == txtsource.Text)
+            {
+                MessageBox.Show("Invalid inputs Source can't be the same as Destination", "Add Trip Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtsource.Text = "";
+                txtdestination.Text = "";
                 txtsource.Focus();
             }
             else if (!Regex.IsMatch(txtmonth.Text, @"^(1[0-2]|[1-9])$"))
             {
                 MessageBox.Show("Invalid month. takes only from 1 to 12",
-                    "Registration Failed",
+                    "Add Trip  Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtmonth.Text = "";
                 txtmonth.Focus();
@@ -178,7 +185,7 @@ namespace Train_Booking
             else if (!Regex.IsMatch(txtday.Text, @"^(3[01]|[12][0-9]|[1-9])$"))
             {
                 MessageBox.Show("Invalid day. takes only from 1 to 31",
-                    "Registration Failed",
+                    "Add Trip  Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtday.Text = "";
                 txtday.Focus();
@@ -186,14 +193,14 @@ namespace Train_Booking
             else if (!Regex.IsMatch(txtdestination.Text, @"^[a-zA-Z\s]+$"))
             {
                 MessageBox.Show("Invalid Destination. Name can only contain alphabetic characters",
-                    "Registration Failed",
+                    "Add Trip  Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtdestination.Text = "";
                 txtdestination.Focus();
             }
             else if (!Regex.IsMatch(txtprice.Text, @"^\d+$"))
             {
-                MessageBox.Show("Invalid Price . Price must be a positive integer", "Registration Failed",
+                MessageBox.Show("Invalid Price . Price must be a positive integer", "Add Trip  Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtprice.Text = "";
                 txtprice.Focus();
@@ -390,7 +397,13 @@ namespace Train_Booking
             }
             else if (!Regex.IsMatch(txtSeats.Text, @"^\d+$"))
             {
-                MessageBox.Show("Invalid Seats Number . Seats Number must be a positive integer", "Registration Failed",
+                MessageBox.Show("Invalid Seats Number . Seats Number must be a positive integer ", "Add Train Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSeats.Text = "";
+                txtSeats.Focus();
+            }else if ( Convert.ToInt32(txtSeats.Text)> 20)
+            {
+                MessageBox.Show("Invalid Seats Number . Seats Number must be a greater than 20", "Add Train Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSeats.Text = "";
                 txtSeats.Focus();
@@ -477,22 +490,30 @@ namespace Train_Booking
             }
             else if (!Regex.IsMatch(Mtxtsource.Text, @"^[a-zA-Z\s]+$"))
             {
-                MessageBox.Show("Invalid Source. Name can only contain alphabetic characters", "Registration Failed",
+                MessageBox.Show("Invalid Source. Name can only contain alphabetic characters", "Modify Trip  Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Mtxtsource.Text = "";
                 Mtxtsource.Focus();
             }
+            else if (Mtxtdestination.Text == Mtxtsource.Text)
+            {
+                MessageBox.Show("Invalid inputs Source can't be the same as Destination", "Modify Trip Failed",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Mtxtsource.Text = "";
+                Mtxtdestination.Text = "";
+                Mtxtsource.Focus();
+            }
             else if (!Regex.IsMatch(Mtxtdestination.Text, @"^[a-zA-Z\s]+$"))
             {
-                MessageBox.Show("Invalid Destination. Name can only contain alphabetic characters",
-                    "Registration Failed",
+                MessageBox.Show("Invalid Destination. can only contain alphabetic characters",
+                    "Modify Trip  Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Mtxtdestination.Text = "";
                 Mtxtdestination.Focus();
             }
             else if (!Regex.IsMatch(Mtxtprice.Text, @"^\d+$"))
             {
-                MessageBox.Show("Invalid Price . Price must be a positive integer", "Registration Failed",
+                MessageBox.Show("Invalid Price . Price must be a positive integer", "Modify Trip  Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Mtxtprice.Text = "";
                 Mtxtprice.Focus();
@@ -500,7 +521,7 @@ namespace Train_Booking
             else if (!Regex.IsMatch(Mtxtmonth.Text, @"^(1[0-2]|[1-9])$"))
             {
                 MessageBox.Show("Invalid month. takes only from 1 to 12",
-                    "Registration Failed",
+                    "Modify Trip  Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Mtxtmonth.Text = "";
                 Mtxtmonth.Focus();
@@ -508,7 +529,7 @@ namespace Train_Booking
             else if (!Regex.IsMatch(Mtxtday.Text, @"^(3[01]|[12][0-9]|[1-9])$"))
             {
                 MessageBox.Show("Invalid day. takes only from 1 to 31",
-                    "Registration Failed",
+                    "Modify Trip Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Mtxtday.Text = "";
                 Mtxtday.Focus();
