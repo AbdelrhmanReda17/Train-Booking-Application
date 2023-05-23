@@ -275,6 +275,7 @@ namespace Train_Booking
             dataGridView.RowTemplate.Height = 25;
             dataGridView.Size = new Size(379, 361);
             dataGridView.TabIndex = 18;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
             dataGridView.CellDoubleClick += dataGridView_CellDoubleClick;
             dataGridView.SelectionChanged += dataGridView_SelectionChanged;
             // 
@@ -771,9 +772,9 @@ namespace Train_Booking
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(516, 450);
+            Controls.Add(editprofile_panel);
             Controls.Add(booktrip_panel);
             Controls.Add(select_panel);
-            Controls.Add(editprofile_panel);
             Controls.Add(ViewBooking_panel);
             Controls.Add(ApplicationPanel);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;

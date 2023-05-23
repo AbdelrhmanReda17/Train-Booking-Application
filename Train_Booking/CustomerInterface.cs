@@ -370,8 +370,8 @@ namespace Train_Booking
                     customer.password = txtpassword.Text;
                     customer.name = txtname.Text;
                     customer.phone = txtphone.Text;
-                    label1.Text = $"Welcome + ";
-                    label13.Text = "{customer.name}";
+                    label1.Text = $"Welcome, ";
+                    label13.Text = $"{customer.name}";
                     command.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -449,6 +449,11 @@ namespace Train_Booking
         {
             new StartPage().Show();
             Hide();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
