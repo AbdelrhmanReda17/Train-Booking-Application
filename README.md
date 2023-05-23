@@ -1,6 +1,6 @@
 # Train Booking Application
-
-This is a train booking application developed using C# and Windows Forms. It provides an interface for both administrators and customers to manage and book train trips.
+- This is a train booking application developed using C# and Windows Forms. It provides an interface for both administrators and customers to manage and book train trips.
+- Converting the [Train-booking](https://github.com/AbdelrhmanReda17/Train-booking) Console Application into GUI
 
 ## Features
 
