@@ -159,6 +159,9 @@ namespace Train_Booking
         private int LeastId = 0;
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
+            Hide(booktrip_panel, editprofile_panel, ViewBooking_panel);
+            booktrip_panel.Visible = false;
+            select_panel.Visible = true;
             List<int> lst = new List<int>();
             trip.trip_id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["TripID"].Value);
             trip.tripDate = Convert.ToString(dataGridView.SelectedRows[0].Cells["TripDate"].Value);

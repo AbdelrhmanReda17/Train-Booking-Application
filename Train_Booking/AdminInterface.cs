@@ -401,7 +401,8 @@ namespace Train_Booking
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSeats.Text = "";
                 txtSeats.Focus();
-            }else if ( Convert.ToInt32(txtSeats.Text)> 20)
+            }
+            else if (Convert.ToInt32(txtSeats.Text) > 20)
             {
                 MessageBox.Show("Invalid Seats Number . Seats Number must be a greater than 20", "Add Train Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);

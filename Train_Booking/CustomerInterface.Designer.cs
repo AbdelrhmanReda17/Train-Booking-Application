@@ -107,7 +107,7 @@ namespace Train_Booking
             label1.AutoSize = true;
             label1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(29, 82);
+            label1.Location = new Point(3, 82);
             label1.Name = "label1";
             label1.Size = new Size(60, 15);
             label1.TabIndex = 1;
@@ -758,11 +758,12 @@ namespace Train_Booking
             label13.AutoSize = true;
             label13.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label13.ForeColor = Color.White;
-            label13.Location = new Point(49, 97);
+            label13.Location = new Point(25, 102);
             label13.Name = "label13";
-            label13.Size = new Size(15, 15);
+            label13.Size = new Size(75, 15);
             label13.TabIndex = 22;
-            label13.Text = "A";
+            label13.Text = "Abdelrhman";
+            label13.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // CustomerInterface
             // 

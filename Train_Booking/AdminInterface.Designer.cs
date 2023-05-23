@@ -143,7 +143,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(12, 85);
+            label1.Location = new Point(0, 85);
             label1.Name = "label1";
             label1.Size = new Size(101, 15);
             label1.TabIndex = 4;
@@ -1077,11 +1077,11 @@
             label20.BackColor = Color.Transparent;
             label20.Font = new Font("Nirmala UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label20.ForeColor = Color.White;
-            label20.Location = new Point(52, 99);
+            label20.Location = new Point(26, 105);
             label20.Name = "label20";
-            label20.Size = new Size(15, 15);
+            label20.Size = new Size(75, 15);
             label20.TabIndex = 16;
-            label20.Text = "A";
+            label20.Text = "Abdelrhman";
             // 
             // addadmin_panel
             // 
